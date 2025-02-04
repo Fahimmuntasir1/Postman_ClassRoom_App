@@ -1,0 +1,794 @@
+{
+	"info": {
+		"_postman_id": "205590ea-9573-4490-ac90-9d5c360fa320",
+		"name": "Classroom",
+		"description": "This API facilitates the management of a classroom platform with two user types: **Teachers** and **Students**.\n\n### **Features**:\n\n- **Teacher Features**:\n    \n    - Create, update, and delete courses.\n        \n    - Manage course details.\n        \n- **Student Features**:\n    \n    - Browse all available courses.\n        \n    - Purchase courses and view enrolled courses.\n        \n- **Shared Features**:\n    \n    - Dashboard access with personalized data for both Teachers and Students after login.\n        \n    - Authentication and user management.\n        \n\nThis collection includes endpoints for managing users, courses, authentication, and dashboards.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40712415",
+		"_collection_link": "https://syntax-app-team.postman.co/workspace/SynTax-App-Team-Workspace~0415490a-557e-492f-8784-d4bb3251c0f9/collection/40726494-205590ea-9573-4490-ac90-9d5c360fa320?action=share&source=collection_link&creator=40712415"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"jsonData = pm.response.json()",
+									"// if (res ==true) {",
+									"//     pm.environment.set(\"accessToken\", res.data.accessToken)",
+									"//     pm.environment.set(\"refreshToken\", res.data.refreshToken)",
+									"// }",
+									"",
+									"let testType = pm.environment.get(\"testType\");",
+									"let testIndex = pm.environment.get(\"loginTestIndex\");",
+									"",
+									"// ------------test case automation for Positive testing-------",
+									"if (testType === \"runPositiveTest\") {",
+									"",
+									"    pm.test(\"🔄 Running Positive test case: \" + \"iteration : \" + testIndex);",
+									"    ",
+									"    pm.test(\"Status code is 200\", function() {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"    pm.test(\"Body have strings success, messages, data\", function() {",
+									"        pm.expect(pm.response.text()).to.include(\"success\", \"message\", \"data\");",
+									"    });",
+									"",
+									"    pm.test(\"Success must be ture\", function() {",
+									"        pm.expect(jsonData.success).to.eql(true);",
+									"    });",
+									"",
+									"    pm.test(\"Body must have accessToken and refreshToken in data object\", function() {",
+									"        pm.expect(jsonData.data).to.have.property(\"accessToken\");",
+									"        pm.expect(jsonData.data.accessToken).to.be.a(\"string\");",
+									"",
+									"        pm.expect(jsonData.data).to.have.property(\"refreshToken\");",
+									"        pm.expect(jsonData.data.refreshToken).to.be.a(\"string\");",
+									"    });",
+									"",
+									"}",
+									"",
+									"// ------------test case automation for Negative testing-------",
+									"// -------------for invalid user and password ---------",
+									"if (testType === \"invalidUserPass\") {",
+									"",
+									"    pm.test(\"🔄 Running Negative test case invalid user and password: \"+ \"iteration : \" +  testIndex);",
+									"",
+									"    pm.test(\"Status code is 400\", function() {",
+									"        pm.response.to.have.status(400);",
+									"    });",
+									"    pm.test(\"Success must not be ture\", function() {",
+									"        pm.expect(jsonData.success).to.eql(false);",
+									"    });",
+									"    pm.test(\"message will be Invalid username selected\", function() {",
+									"        pm.expect(jsonData.message).to.eql(\"Invalid username selected\");",
+									"    });",
+									"}",
+									"",
+									"",
+									"// -------------for empty user and password ---------",
+									"if (testType === \"emptyUserPass\") {",
+									"",
+									"    pm.test(\"🔄 Running Negative test case empty user and password: \"+ \"iteration : \" + testIndex);",
+									"",
+									"    pm.test(\"Status code is 400\", function() {",
+									"        pm.response.to.have.status(400);",
+									"    });",
+									"    pm.test(\"Success must not be ture\", function() {",
+									"        pm.expect(jsonData.success).to.eql(false);",
+									"    });",
+									"    pm.test(\"message will be Validation failed\", function() {",
+									"        pm.expect(jsonData.message).to.eql(\"Validation failed.\");",
+									"    });",
+									"    pm.test(\"response data should be eqal as test cases\", function() {",
+									"        pm.expect(jsonData.data.username).to.eql([\"Username is mandatory\"]);",
+									"        pm.expect(jsonData.data.password).to.eql([\"Password is mandatory\"]);",
+									"    });",
+									"}",
+									"// -------------for extra field with user and password ---------",
+									"if (testType === \"extraField\") {",
+									"",
+									"    pm.test(\"🔄 Running edge test case extra field with user and password: \"+ \"iteration : \" + testIndex);",
+									"",
+									"    pm.test(\"Status code is 400 or 403\", function() {",
+									"        pm.response.to.have.status(400 || 403);",
+									"    });",
+									"    pm.test(\"Success must not be ture\", function() {",
+									"        pm.expect(jsonData.success).to.eql(false);",
+									"    });",
+									"    pm.test(\"message will be invalid request\", function() {",
+									"        pm.expect(jsonData.message).to.eql(\"Invalid username selected\");",
+									"    });",
+									"}",
+									"",
+									"// -------------for SQL inject in extra field with user and password ---------",
+									"if (testType === \"extraFieldSqlInject\") {",
+									"",
+									"    pm.test(\"🔄 Running Security test case SQL inject in extra field: \"+ \"iteration : \" +  testIndex);",
+									"",
+									"    pm.test(\"Status code is 400 or 403\", function() {",
+									"        pm.response.to.have.status(400 || 403);",
+									"    });",
+									"}",
+									"",
+									"// -------------for SQL inject username and password ---------",
+									"if (testType === \"sqlInjectUserPass\") {",
+									"",
+									"    pm.test(\"🔄 Running Security test case SQL inject username and password: \"+ \"iteration : \" +  testIndex);",
+									"",
+									"    pm.test(\"Status code is 400 or 403\", function() {",
+									"        pm.response.to.have.status(400 || 403);",
+									"    });",
+									"}",
+									"",
+									"// -------------for nested JSON in extra field with user and password ---------",
+									"if (testType === \"extraFieldJsonObject\") {",
+									"",
+									"    pm.test(\"🔄 Running Edge test case nested JSON in extra field with user and password: \"+ \"iteration : \" + testIndex);",
+									"",
+									"    pm.test(\"Status code is 400\", function() {",
+									"        pm.response.to.have.status(400);",
+									"    });",
+									"}",
+									"// -------------for case0sensitive username ---------",
+									"if (testType === \"caseSensitiveUsername\") {",
+									"",
+									"    pm.test(\"🔄 Running Edge test case case0sensitive username: \"+ \"iteration : \" + testIndex);",
+									"",
+									"    pm.test(\"Status code is 400 or 401\", function() {",
+									"        pm.response.to.have.status(400 || 401);",
+									"    });",
+									"}",
+									"",
+									"",
+									"let requestUrl = pm.request.url.toString();",
+									"let statusCode = pm.response.code;",
+									"",
+									"if (requestUrl.startsWith(\"http://\")) {",
+									"    pm.test(\"❌ This API running in http method that not secure\", function() {",
+									"        pm.expect(statusCode).to.be.oneOf([400, 403, 405]);",
+									"    });",
+									"} else if (requestUrl.startsWith(\"https://\")) {",
+									"    pm.test(\"https request should be succeed\", function() {",
+									"        pm.expect(statusCode).to.eql(200)",
+									"    })",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let loginTests = [",
+									"    // ---------for positive testing------------",
+									"    {",
+									"        username: \"fahim07\",",
+									"        password: \"Synergy@1234\",",
+									"        testType: \"runPositiveTest\"",
+									"    },",
+									"    // ---------- for invalid user and password ---------",
+									"    {",
+									"        username: \"wronguser\",",
+									"        password: \"wrongpassword\",",
+									"        testType: \"invalidUserPass\"",
+									"    },",
+									"    // ---------- for empty user and password ---------",
+									"    {",
+									"        username: \"\",",
+									"        password: \"\",",
+									"        testType: \"emptyUserPass\"",
+									"    },",
+									"    // ---------- for extra field with user and password ---------",
+									"    {",
+									"        username: \"fahim07\",",
+									"        password: \"Synergy@1234\",",
+									"        extraField: \"unexpected\",",
+									"        testType: \"extraField\"",
+									"    },",
+									"    // ---------- for SQL inject in extra field user and password ---------",
+									"    {",
+									"        username: \"fahim07\",",
+									"        password: \"Synergy@1234\",",
+									"        extraField: \"' OR '1'='1\",",
+									"        testType: \"extraFieldSqlInject\"",
+									"    },",
+									"    // ---------- for JSON object in extra field user and password ---------",
+									"    {",
+									"        username: \"fahim07\",",
+									"        password: \"Synergy@1234\",",
+									"        extraField: {",
+									"            \"nested\": \"value\"",
+									"        },",
+									"        testType: \"extraFieldJsonObject\"",
+									"    },",
+									"    // ---------- for SQL inject in username and password ---------",
+									"    {",
+									"        username: \"' OR '1'='1\",",
+									"        password: \"' OR '1'='1\",",
+									"        testType: \"sqlInjectUserPass\"",
+									"    },",
+									"    // ---------- for case-sensitive in username field ---------",
+									"    {",
+									"        username: \"faHIm07\",",
+									"        password: \"Synergy@1234\",",
+									"        testType: \"caseSensitiveUsername\"",
+									"    },",
+									"]",
+									"",
+									"// Get the current test index (default 0 if not set)",
+									"let currentIndex = pm.environment.get(\"loginTestIndex\") || 0;",
+									"currentIndex = parseInt(currentIndex);",
+									"",
+									"",
+									"// Set username, password, and other data from the array",
+									"let currentTest = loginTests[currentIndex];",
+									"pm.environment.set(\"username\", currentTest.username);",
+									"pm.environment.set(\"password\", currentTest.password);",
+									"pm.environment.set(\"testType\", currentTest.testType);",
+									"",
+									"if (currentTest.extraField) {",
+									"    pm.environment.set(\"extraField\", currentTest.extraField);",
+									"}",
+									"// Increment index for next request",
+									"if (currentIndex < loginTests.length - 1) {",
+									"    pm.environment.set(\"loginTestIndex\", currentIndex + 1);",
+									"} else {",
+									"    pm.environment.set(\"loginTestIndex\", 0);",
+									"}",
+									"",
+									"postman.setNextRequest(null);",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"// ---------for positive testing------------",
+									"// pm.variables.set(\"username\", \"fahim06\")",
+									"// pm.variables.set(\"password\", \"Synergy@1234\")",
+									"// pm.environment.set(\"testType\", \"runPositiveTest\");",
+									"",
+									"// ------------for negative testing-------------",
+									"// ---------- for invalid user and password ---------",
+									"// pm.variables.set(\"username\", \"wronguser\")",
+									"// pm.variables.set(\"password\", \"wrongpassword\")",
+									"// pm.environment.set(\"testType\", \"invalidUserPass\");",
+									"",
+									"// ---------- for empty user and password ---------",
+									"// pm.variables.set(\"username\", \"\")",
+									"// pm.variables.set(\"password\", \"\")",
+									"// pm.environment.set(\"testType\", \"emptyUserPass\");",
+									"",
+									"// ---------- for extra field with user and password ---------",
+									"// pm.variables.set(\"username\", \"fahim07\")",
+									"// pm.variables.set(\"password\", \"Synergy@1234\")",
+									"// pm.variables.set(\"extraField\", \"unexpected\")",
+									"// pm.environment.set(\"testType\", \"extraField\");",
+									"",
+									"// ---------- for SQL inject in extra field user and password ---------",
+									"// pm.variables.set(\"username\", \"fahim07\")",
+									"// pm.variables.set(\"password\", \"Synergy@1234\")",
+									"// pm.variables.set(\"extraField\", \"' OR '1'='1\")",
+									"// pm.environment.set(\"testType\", \"extraFieldSqlInject\");",
+									"",
+									"// ---------- for SQL inject in username and password ---------",
+									"// pm.variables.set(\"username\", \"' OR '1'='1\")",
+									"// pm.variables.set(\"password\", \"' OR '1'='1\")",
+									"// pm.environment.set(\"testType\", \"sqlInjectUserPass\");",
+									"",
+									"// ---------- for JSON object in extra field user and password ---------",
+									"// pm.variables.set(\"username\", \"fahim07\")",
+									"// pm.variables.set(\"password\", \"Synergy@1234\")",
+									"// pm.variables.set(\"extraField\", { \"nested\": \"value\" })",
+									"// pm.environment.set(\"testType\", \"extraFieldJsonObject\");",
+									"",
+									"// ---------- for case-sensitive in username field ---------",
+									"// pm.variables.set(\"username\", \"faHIm07\")",
+									"// pm.variables.set(\"password\", \"Synergy@1234\");",
+									"// pm.environment.set(\"testType\", \"caseSensitiveUsername\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}\n\n// {\n//   \"username\": \"fahim07\",\n//   \"password\": \"Synergy@1234\"\n// }\n\n// {\n// \"username\": \"FAHIM07\",\n// \"password\": \"Synergy@1234\"\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.0.204:8080/login",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"204"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						},
+						"description": "- To Successfull authentication user will need to give correct username and password.\n    \n- Authenticated users receive a **Bearer Token** and a **Refresh Token** in the response.\n    \n- Tokens enable secure access to protected endpoints and maintain long-term login sessions.\n    \n- In script tab there are written script to store tokens in environment variabls"
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"function GenearteRandomUsername() {",
+									"    // Generate a random 6-character prefix with letters",
+									"    const prefix = Array.from({ length: 6 }, () =>",
+									"        String.fromCharCode(97 + Math.floor(Math.random() * 26))",
+									"    ).join('');",
+									"",
+									"    return prefix;",
+									"}",
+									"const randomUsername = GenearteRandomUsername()",
+									"",
+									"pm.environment.set(\"username\", randomUsername)",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"{{username}}\",\n  \"email\": \"{{username}}@example.com\",\n  \"password\": \"{{password}}\",\n  \"role\": \"student\",\n  \"name\": \"fahim07\"\n}\n\n// {\n// \"username\": \"\",\n// \"email\": \"\",\n// \"password\": \"\",\n// \"role\": \"\",\n// \"name\": \"\"\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/signup",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"signup"
+							]
+						},
+						"description": "- To Successfull Signup user will need to give correct creadintials username, email, password, Role(teacher/student) it will be small letters, and full name.\n    \n- Users (Students or Teachers) can register with valid credentials.\n    \n- Upon successful registration, they are redirected to the login page."
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"res = pm.response.json()",
+									"if (res == true){",
+									"    pm.environment.set(\"accessToken\", res.data.accessToken)",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Refresh-Token",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/refresh",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"refresh"
+							]
+						},
+						"description": "The **Refresh Token** can be used to generate a new **Bearer Token** when the access token expires."
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"res = pm.response.json()",
+									"if( res == true) {",
+									"    pm.environment.set(\"accessToken\", \"\")",
+									"    pm.environment.set(\"refreshToken\", \"\")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/logout",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"logout"
+							]
+						},
+						"description": "- The `/logout` endpoint accepts the **Bearer Token** in the header.\n    \n- Upon successful logout, all tokens are invalidated, ensuring the user is securely logged out."
+					},
+					"response": []
+				}
+			],
+			"description": "This section contains API endpoints for user authentication in the Classroom Application.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{accessToken}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Course Management",
+			"item": [
+				{
+					"name": "Create Course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Romantic Novel\",\n  \"books\": [\n    {\n      \"name\": \"Happy Place\",\n      \"author\": \"Emily Henry\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/course/create",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"course",
+								"create"
+							]
+						},
+						"description": "- In /course/create user must be logged in and also be a teacher.\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Also you will pass data (like example json) in body tab.\n    \n- Then hit the send button you will get success message."
+					},
+					"response": []
+				},
+				{
+					"name": "Enroll Course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseId\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/course/enroll",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"course",
+								"enroll"
+							]
+						},
+						"description": "- In /course/enroll user must be logged in and also be a student.\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Also you will pass coursID (like example json) in body tab.\n    \n- Then hit the send button you will get success messages."
+					},
+					"response": []
+				},
+				{
+					"name": "All Courses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/course/all",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"course",
+								"all"
+							]
+						},
+						"description": "- To getting all courses user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Then hit the send button you will get response success messages and data of all courses."
+					},
+					"response": []
+				},
+				{
+					"name": "Single Course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"res = pm.response.json()",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseId\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/course/details",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"course",
+								"details"
+							]
+						},
+						"description": "- To getting a single course user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id that you want to access\n    \n- Then hit the send button you will get response success messages and data of a course."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard Management",
+			"item": [
+				{
+					"name": "Enrolled Students",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"courseId\": {{bookId}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/course/enrolled/all-student",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"course",
+								"enrolled",
+								"all-student"
+							]
+						},
+						"description": "- /course/enrolled/all-student In this endpoint you will see all the students those are enrolled in a course.\n    \n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id which course you want to see.\n    \n- Then hit the send button you will get response success messages and see enrolled students."
+					},
+					"response": []
+				},
+				{
+					"name": "Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/dashboard",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"dashboard"
+							]
+						},
+						"description": "In dashboard a teacher will see all the course that he created, and see a create button to create more courses .The student will see all the courses that he enrolled, he will also see a see more button to buy more courses. They both will access the user profile in right top corner.\n\n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Then hit the send button you will get response success messages and see dashboard."
+					},
+					"response": []
+				},
+				{
+					"name": "Profile Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/profile/details",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"profile",
+								"details"
+							]
+						},
+						"description": "- in /profile/details user will see and edit their user profile.\n    \n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Then hit the send button you will get response success messages and see profile details."
+					},
+					"response": []
+				}
+			],
+			"description": "After successful login, users are redirected to their personalized dashboard based on their role (Student or Teacher)."
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
