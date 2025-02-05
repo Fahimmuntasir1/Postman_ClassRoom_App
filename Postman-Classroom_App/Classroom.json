@@ -855,7 +855,8 @@
 									"refreshTests = [",
 									"// using invalid token",
 									"{",
-									"    token : \"eyJhbGciOiMOUzI1NiJ9.eyJzdWIiOiJmYWhpbTA2IiwiaWF0IjoxNzM4NzMyOTE0LCJleHAiOjE3Mzg4MTkzMTR9.tqAqcyaAz3EswtPy7vurNzb0Uct6lXyilVE-q9xADwI\"",
+									"    token : pm.environment.get(),",
+									"    testType : \"valid\"",
 									"}",
 									"]",
 									"",
@@ -897,13 +898,13 @@
 							{
 								"key": "Refresh-Token",
 								"value": "{{newRefToken}}",
-								"type": "text",
-								"disabled": true
+								"type": "text"
 							},
 							{
 								"key": "Refresh-Token",
 								"value": "{{refreshToken}}",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
