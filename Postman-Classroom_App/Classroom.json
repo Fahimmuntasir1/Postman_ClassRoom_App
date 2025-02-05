@@ -1012,7 +1012,7 @@
 									"res = pm.response.json()",
 									"if( res.success == true) {",
 									"    pm.environment.set(\"accessToken\", \"\")",
-									"    // pm.environment.set(\"refreshToken\", \"\")",
+									"    pm.environment.set(\"refreshToken\", \"\")",
 									"}",
 									""
 								],
