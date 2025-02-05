@@ -1112,18 +1112,18 @@
 									"",
 									"",
 									"// Set data from the array",
-									"let currentTest = refreshTests[currentIndex];",
-									"pm.environment.set(\"newRefToken\", currentTest.token);",
+									"let currentTest = accessTokenTests[currentIndex];",
+									"pm.environment.set(\"newAccessToken\", currentTest.token);",
 									"pm.environment.set(\"testType\", currentTest.testType);",
 									"",
 									"if (currentTest.extraField) {",
-									"    pm.environment.set(\"newRefToken\", currentTest.extraField);",
+									"    pm.environment.set(\"newAccessToken\", currentTest.extraField);",
 									"}",
 									"// Increment index for next request ",
-									"if (currentIndex < refreshTests.length - 1) {",
-									"    pm.environment.set(\"refreshTestIndex\", currentIndex + 1);",
+									"if (currentIndex < accessTokenTests.length - 1) {",
+									"    pm.environment.set(\"accessTokenIndex\", currentIndex + 1);",
 									"} else {",
-									"    pm.environment.set(\"refreshTestIndex\", 0);",
+									"    pm.environment.set(\"accessTokenIndex\", 0);",
 									"}",
 									""
 								],
@@ -1140,7 +1140,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{accessToken}}"
+								"token": "{{newAccessToken}}"
 							}
 						},
 						"method": "POST",
