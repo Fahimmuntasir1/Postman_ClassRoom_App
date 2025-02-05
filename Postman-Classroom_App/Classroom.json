@@ -898,7 +898,7 @@
 								"id": "a37a4b57-8bb4-49fd-a0e2-9f03fe0c7dea",
 								"exec": [
 									"res = pm.response.json()",
-									"if( res == true) {",
+									"if( res.success == true) {",
 									"    pm.environment.set(\"accessToken\", \"\")",
 									"    pm.environment.set(\"refreshToken\", \"\")",
 									"}",
@@ -911,7 +911,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "69bfa916-cfe4-4ac5-8b71-288fc985847f",
+								"id": "baf50c60-2d1a-462a-93b1-4146ab0144e7",
 								"exec": [],
 								"type": "text/javascript"
 							}
