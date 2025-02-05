@@ -852,7 +852,31 @@
 							"script": {
 								"id": "ad48cfac-d892-4318-b9b1-4b5606dfac7b",
 								"exec": [
-									"pm.environment.set(\"newRefToken\", \"eyJhbGciOiMOUzI1NiJ9.eyJzdWIiOiJmYWhpbTA2IiwiaWF0IjoxNzM4NzMyOTE0LCJleHAiOjE3Mzg4MTkzMTR9.tqAqcyaAz3EswtPy7vurNzb0Uct6lXyilVE-q9xADwI\")"
+									"refreshTests = [",
+									"// using invalid token",
+									"pm.environment.set(\"newRefToken\", \"eyJhbGciOiMOUzI1NiJ9.eyJzdWIiOiJmYWhpbTA2IiwiaWF0IjoxNzM4NzMyOTE0LCJleHAiOjE3Mzg4MTkzMTR9.tqAqcyaAz3EswtPy7vurNzb0Uct6lXyilVE-q9xADwI\")",
+									"",
+									"]",
+									"",
+									"// Get the current test index (default 0 if not set)",
+									"let currentIndex = pm.environment.get(\"refreshTestIndex\") || 0;",
+									"currentIndex = parseInt(currentIndex);",
+									"",
+									"",
+									"// Set username, password, and other data from the array",
+									"let currentTest = refreshTests[currentIndex];",
+									"pm.environment.set(\"newRefToken\", currentTest.username);",
+									"",
+									"if (currentTest.extraField) {",
+									"    pm.environment.set(\"extraField\", currentTest.extraField);",
+									"}",
+									"// Increment index for next request ",
+									"if (currentIndex < signupTests.length - 1) {",
+									"    pm.environment.set(\"signupTestIndex\", currentIndex + 1);",
+									"} else {",
+									"    pm.environment.set(\"signupTestIndex\", 0);",
+									"}",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
