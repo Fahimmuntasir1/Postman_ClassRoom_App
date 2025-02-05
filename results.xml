@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Classroom" tests="11" time="0.490">
+  <testsuite name="Authentication / Login" id="18f2f2d9-c359-4d4e-be0b-c75455dc6b4d" timestamp="2025-01-30T11:56:38.540Z" tests="0" failures="0" errors="0" time="0.079"/>
+  <testsuite name="Authentication / Signup" id="8030bec9-a752-4d08-af7f-6f9c7870ad9c" timestamp="2025-01-30T11:56:38.540Z" tests="0" failures="0" errors="0" time="0.153"/>
+  <testsuite name="Authentication / Refresh" id="35342be1-8bfa-4e16-9a99-2a52fc105b16" timestamp="2025-01-30T11:56:38.540Z" tests="0" failures="0" errors="0" time="0.071"/>
+  <testsuite name="Authentication / Logout" id="792a86d6-f45a-4d20-b6cd-8adcfc92946b" timestamp="2025-01-30T11:56:38.540Z" tests="0" failures="0" errors="0" time="0.061"/>
+  <testsuite name="Course Management / Create Course" id="1e108f43-64cf-418c-8288-53bf1f0bfcd9" timestamp="2025-01-30T11:56:38.540Z" tests="0" failures="0" errors="0" time="0.075"/>
+  <testsuite name="Course Management / Enroll Course" id="0e0da367-263d-41bf-a625-c8e56bbeeddc" timestamp="2025-01-30T11:56:38.540Z" tests="0" failures="0" errors="0" time="0.007"/>
+  <testsuite name="Course Management / All Courses" id="d88769e6-8b40-45d4-9e63-c01bb4f43b64" timestamp="2025-01-30T11:56:38.540Z" tests="0" failures="0" errors="0" time="0.007"/>
+  <testsuite name="Course Management / Single Course" id="a834efbe-a3fb-4b5f-8368-2412de404e67" timestamp="2025-01-30T11:56:38.540Z" tests="0" failures="0" errors="1" time="0.013">
+    <system-err><![CDATA[Iteration: 0
+
+---
+testScriptError: Cannot read properties of undefined (reading 'id')
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Dashboard Management / Enrolled Students" id="09d91fd5-ec21-4864-842a-b653ced30869" timestamp="2025-01-30T11:56:38.540Z" tests="0" failures="0" errors="0" time="0.009"/>
+  <testsuite name="Dashboard Management / Dashboard" id="820c3984-e1f0-434e-bec0-441d32bf2b99" timestamp="2025-01-30T11:56:38.540Z" tests="0" failures="0" errors="0" time="0.008"/>
+  <testsuite name="Dashboard Management / Profile Details" id="cc810b04-7579-4226-a2f4-4c077fe80706" timestamp="2025-01-30T11:56:38.540Z" tests="0" failures="0" errors="0" time="0.007"/>
+</testsuites>
