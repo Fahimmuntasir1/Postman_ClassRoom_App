@@ -876,8 +876,9 @@
 							},
 							{
 								"key": "Refresh-Token",
-								"value": "{{",
-								"type": "text"
+								"value": "{{refreshToken}}",
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
