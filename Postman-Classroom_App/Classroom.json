@@ -852,7 +852,7 @@
 							"script": {
 								"id": "ad48cfac-d892-4318-b9b1-4b5606dfac7b",
 								"exec": [
-									""
+									"pm.environment.set(\"newRefToken\", \"eyJhbGciOiMOUzI1NiJ9.eyJzdWIiOiJmYWhpbTA2IiwiaWF0IjoxNzM4NzMyOTE0LCJleHAiOjE3Mzg4MTkzMTR9.tqAqcyaAz3EswtPy7vurNzb0Uct6lXyilVE-q9xADwI\")"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -871,7 +871,12 @@
 						"header": [
 							{
 								"key": "Refresh-Token",
-								"value": "{{refreshToken}}",
+								"value": "{{newRefToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Refresh-Token",
+								"value": "{{",
 								"type": "text"
 							}
 						],
