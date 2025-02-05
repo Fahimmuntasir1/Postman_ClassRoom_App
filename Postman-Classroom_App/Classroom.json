@@ -836,10 +836,10 @@
 							"script": {
 								"id": "7508fc5c-333a-4f11-9b93-eb6b5bc36a85",
 								"exec": [
-									"// res = pm.response.json()",
-									"// if (res == true){",
-									"//     pm.environment.set(\"accessToken\", res.data.accessToken)",
-									"// }",
+									"res = pm.response.json()",
+									"if (res == true){",
+									"    pm.environment.set(\"accessToken\", res.data.accessToken)",
+									"}",
 									"",
 									""
 								],
