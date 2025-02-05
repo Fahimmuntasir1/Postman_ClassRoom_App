@@ -836,10 +836,10 @@
 							"script": {
 								"id": "7508fc5c-333a-4f11-9b93-eb6b5bc36a85",
 								"exec": [
-									"// res = pm.response.json()",
-									"// if (res.success === true){",
-									"//     pm.environment.set(\"accessToken\", res.data.accessToken)",
-									"// }",
+									"res = pm.response.json()",
+									"if (res.success === true){",
+									"    pm.environment.set(\"accessToken\", res.data.accessToken)",
+									"}",
 									"",
 									""
 								],
@@ -872,13 +872,13 @@
 							{
 								"key": "Refresh-Token",
 								"value": "{{newRefToken}}",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							},
 							{
 								"key": "Refresh-Token",
 								"value": "{{refreshToken}}",
-								"type": "text",
-								"disabled": true
+								"type": "text"
 							}
 						],
 						"body": {
@@ -906,7 +906,7 @@
 									"res = pm.response.json()",
 									"if( res.success == true) {",
 									"    pm.environment.set(\"accessToken\", \"\")",
-									"    pm.environment.set(\"refreshToken\", \"\")",
+									"    // pm.environment.set(\"refreshToken\", \"\")",
 									"}",
 									""
 								],
@@ -918,8 +918,11 @@
 							"listen": "prerequest",
 							"script": {
 								"id": "baf50c60-2d1a-462a-93b1-4146ab0144e7",
-								"exec": [],
-								"type": "text/javascript"
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
