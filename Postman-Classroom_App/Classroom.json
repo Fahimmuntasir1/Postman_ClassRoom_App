@@ -721,11 +721,11 @@
 							"script": {
 								"id": "6058a1be-c6fc-48e6-adb9-0c5c37f63124",
 								"exec": [
-									"res = pm.response.json()",
-									"if (res) {",
-									"    pm.environment.set(\"accessToken\", res.data.accessToken);",
-									"    pm.environment.set(\"refreshToken\", res.data.refreshToken);",
-									"}"
+									"// res = pm.response.json()",
+									"// if (res) {",
+									"//     pm.environment.set(\"accessToken\", res.data.accessToken);",
+									"//     pm.environment.set(\"refreshToken\", res.data.refreshToken);",
+									"// }"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -901,10 +901,19 @@
 									"if( res == true) {",
 									"    pm.environment.set(\"accessToken\", \"\")",
 									"    pm.environment.set(\"refreshToken\", \"\")",
-									"}"
+									"}",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "69bfa916-cfe4-4ac5-8b71-288fc985847f",
+								"exec": [],
+								"type": "text/javascript"
 							}
 						}
 					],
