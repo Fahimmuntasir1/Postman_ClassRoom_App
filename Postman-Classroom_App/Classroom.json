@@ -1419,14 +1419,29 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"courseId\": 4\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{BaseUrl}}/course/details",
+						"url": {
+							"raw": "{{BaseUrl}}/course/details?courseId=4",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"course",
+								"details"
+							],
+							"query": [
+								{
+									"key": "courseId",
+									"value": "4"
+								}
+							]
+						},
 						"description": "- To getting a single course user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id that you want to access\n    \n- Then hit the send button you will get response success messages and data of a course."
 					},
 					"response": []
@@ -1448,14 +1463,30 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n     \"courseId\": {{bookId}}\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{BaseUrl}}/course/enrolled/all-student",
+						"url": {
+							"raw": "{{BaseUrl}}/course/enrolled/all-student?courseId={{bookId}}",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"course",
+								"enrolled",
+								"all-student"
+							],
+							"query": [
+								{
+									"key": "courseId",
+									"value": "{{bookId}}"
+								}
+							]
+						},
 						"description": "- /course/enrolled/all-student In this endpoint you will see all the students those are enrolled in a course.\n    \n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id which course you want to see.\n    \n- Then hit the send button you will get response success messages and see enrolled students."
 					},
 					"response": []
