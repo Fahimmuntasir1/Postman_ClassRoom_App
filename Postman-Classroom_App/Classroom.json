@@ -998,13 +998,13 @@
 									{
 										"key": "Refresh-Token",
 										"value": "{{newRefToken}}",
-										"type": "text"
+										"type": "text",
+										"disabled": true
 									},
 									{
 										"key": "Refresh-Token",
 										"value": "{{refreshToken}}",
-										"type": "text",
-										"disabled": true
+										"type": "text"
 									}
 								],
 								"body": {
