@@ -908,7 +908,11 @@
 											"    pm.test(\"message should be custom message like: token cannot be null or empty\", function() {",
 											"        pm.expect(jsonData.message).to.equal(\"token cannot be null or empty\");",
 											"    });",
-											"}"
+											"}",
+											"",
+											"",
+											"// Check every request returns unique accessToken",
+											"pm.test(\"Every request have return unique accessToken\", )"
 										],
 										"type": "text/javascript",
 										"packages": {}
