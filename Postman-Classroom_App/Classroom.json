@@ -912,7 +912,16 @@
 											"",
 											"",
 											"// Check every request returns unique accessToken",
-											"pm.test(\"Every request have return unique accessToken\", )"
+											"if(testType === \"uniqueAccessToken\"){",
+											"    pm.test(\"🔄 Running AccessToken is unique: \" + \"iteration : \" + refreshTestIndex);",
+											"    pm.test(\"Status code is 200\", function() {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"    pm.test(\"Every request have return unique accessToken\", function(){",
+											"        envAccToken = pm.environment.get(\"accessToken\")",
+											"        pm.expect(jsonData.data).to.eql(envAccToken)",
+											"    })",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -943,6 +952,10 @@
 											"{",
 											"    token : \"' OR '1'='1\",",
 											"    testType : \"sqlInject\"",
+											"},",
+											"{",
+											"    token : pm.environment.get(\"refreshToken\"),",
+											"    testType : \"uniqueAccessToken\"",
 											"},",
 											"]",
 											"",
