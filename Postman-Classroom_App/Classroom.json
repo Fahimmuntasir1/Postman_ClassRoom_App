@@ -915,11 +915,11 @@
 											"if(testType === \"uniqueAccessToken\"){",
 											"    pm.test(\"🔄 Running AccessToken is unique: \" + \"iteration : \" + refreshTestIndex);",
 											"    pm.test(\"Status code is 200\", function() {",
-											"        pm.response.to.have.status(400);",
+											"        pm.response.to.have.status(200);",
 											"    });",
 											"    pm.test(\"Every request have return unique accessToken\", function(){",
 											"        envAccToken = pm.environment.get(\"accessToken\")",
-											"        pm.expect(jsonData.data).to.eql(envAccToken)",
+											"        pm.expect(jsonData.data.accessToken).to.not.eql(envAccToken)",
 											"    })",
 											"}"
 										],
