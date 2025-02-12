@@ -796,7 +796,17 @@
 											"}",
 											"",
 											"",
-											""
+											"// লুপ কন্ট্রোল করার জন্য counter বাড়ানো",
+											"let count = pm.environment.get(\"loopCounter\") || 0;",
+											"count++;",
+											"",
+											"// যদি count < 10 হয়, তাহলে আবার Refresh Token API চালাও",
+											"if (count < 10) {",
+											"    pm.environment.set(\"loopCounter\", count);",
+											"    pm.setNextRequest(\"Refresh Token API\"); // নিজের API নাম বসাও",
+											"} else {",
+											"    pm.setNextRequest(null); // 10 বার হলে Stop",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
