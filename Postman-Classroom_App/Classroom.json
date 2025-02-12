@@ -825,6 +825,12 @@
 									{
 										"key": "Refresh-Token",
 										"value": "{{refreshToken}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Refresh-Token",
+										"value": "eytdjgfswrytyrtyyyhghgggggfhgrtyrethehryheteg",
 										"type": "text"
 									}
 								],
@@ -940,7 +946,7 @@
 											"},",
 											"// using invalid token",
 											"{",
-											"    token : \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYWhpbTA2IiwiaWF0IjoxNzM4NzMzNjk4LCJleHAiOjE3Mzg4MjAwOTh9.aUTRaBt30gDhWCS5BjbrrnHjc8H8306zb564pDGRVZU\",",
+											"    token : \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYWhpbTA2IiwiaWF0IjoxNzM4NzMzNjk4LCJleHAiOjE3Mzg4MjAwOTh9.aUTRaBt30gDhWCS5BjbrrnHjc8H8306zftggrtb564pDGRVZU\",",
 											"    testType : \"invalidToken\"",
 											"},",
 											"// missing refreshToken",
