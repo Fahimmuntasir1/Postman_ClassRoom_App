@@ -794,6 +794,8 @@
 											"if (res.success == true){",
 											"    pm.environment.set(\"accessToken\", res.data.accessToken)",
 											"}",
+											"",
+											"pm.setNextRequest(null)",
 											""
 										],
 										"type": "text/javascript",
@@ -805,7 +807,7 @@
 									"script": {
 										"id": "ad48cfac-d892-4318-b9b1-4b5606dfac7b",
 										"exec": [
-											"    pm.setNextRequest(null)"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
