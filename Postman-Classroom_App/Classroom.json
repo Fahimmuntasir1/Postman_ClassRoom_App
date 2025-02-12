@@ -825,12 +825,6 @@
 									{
 										"key": "Refresh-Token",
 										"value": "{{refreshToken}}",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Refresh-Token",
-										"value": "eytdjgfswrytyrtyyyhghgggggfhgrtyrethehryheteg",
 										"type": "text"
 									}
 								],
