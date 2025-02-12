@@ -795,7 +795,7 @@
 											"    pm.environment.set(\"accessToken\", res.data.accessToken)",
 											"}",
 											"",
-											"pm.setNextRequest(null)",
+											"",
 											""
 										],
 										"type": "text/javascript",
