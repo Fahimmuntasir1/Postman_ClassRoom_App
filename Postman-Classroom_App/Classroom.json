@@ -946,7 +946,7 @@
 											"},",
 											"// using invalid token",
 											"{",
-											"    token : \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYWhpbTA2IiwiaWF0IjoxNzM4NzMzNjk4LCJleHAiOjE3Mzg4MjAwOTh9.aUTRaBt30gDhWCS5BjbrrnHjc8H8306zftggrtb564pDGRVZU\",",
+											"    token : \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYWhpbTA2IiwiaWF0IjoxNzM4NzMzNjk4LCJleHAiOjE3Mzg4MjAwOTh9.aUTRaBt30gDhWCS5BjbrrnHjc8H83fahim06zftggrtb564pDGRVZU\",",
 											"    testType : \"invalidToken\"",
 											"},",
 											"// missing refreshToken",
@@ -1004,13 +1004,13 @@
 									{
 										"key": "Refresh-Token",
 										"value": "{{newRefToken}}",
-										"type": "text",
-										"disabled": true
+										"type": "text"
 									},
 									{
 										"key": "Refresh-Token",
 										"value": "{{refreshToken}}",
-										"type": "text"
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"body": {
