@@ -1410,7 +1410,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\n\"courseId\": 9,\n\"extrafield\": \"unexpected\"\n\n}",
+							"raw": "{\n  \"courseId\": 1\"\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
