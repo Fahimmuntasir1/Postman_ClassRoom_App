@@ -1410,7 +1410,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"courseId\": \"six\"\n}",
+							"raw": "{\n  \"courseId\": \"\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
