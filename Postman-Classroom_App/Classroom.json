@@ -1350,6 +1350,31 @@
 			"item": [
 				{
 					"name": "Create Course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0333f627-3534-46aa-81c7-a9ab052903c8",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm."
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "cfc54e57-c05b-4239-bf84-e93bfb4e7b6f",
+								"exec": [],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "70923611-da9c-49f8-8452-52c1951e834c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1359,7 +1384,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "// {\n//   \"title\": \"Romantic Novel\",\n//   \"books\": [\n//     {\n//       \"name\": \"The Notebook\",\n//       \"author\": \"Emily Henry\"\n//     }\n//   ]\n// }\n\n{\n  \"title\": \"Romantic Novel'; DROP TABLE books; --\",\n  \"books\": [\n    {\n      \"name\": \"The Notebook'; DROP TABLE books; --\",\n      \"author\": \"Emily Henry\"\n    }\n  ]\n}\n",
+							"raw": "{\n  \"title\": \"Romantic Novel\",\n  \"books\": [\n    {\n      \"name\": \"The Notebook\",\n      \"author\": \"Emily Henry\"\n    }\n  ]\n}\n\n// {\n//   \"title\": \"Romantic Novel'; DROP TABLE books; --\",\n//   \"books\": [\n//     {\n//       \"name\": \"The Notebook'; DROP TABLE books; --\",\n//       \"author\": \"Emily Henry\"\n//     }\n//   ]\n// }\n",
 							"options": {
 								"raw": {
 									"language": "json"
