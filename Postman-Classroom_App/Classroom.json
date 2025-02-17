@@ -1406,12 +1406,6 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{newAccessToken}}"
-							}
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
