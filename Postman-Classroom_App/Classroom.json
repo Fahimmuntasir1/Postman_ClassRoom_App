@@ -1401,6 +1401,34 @@
 				},
 				{
 					"name": "Enroll Course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27ece9e1-314a-4814-9092-410fea6ef549",
+								"exec": [
+									"res = pm.response.json()",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"passes\", function (){",
+									"    pm.expect(res.message).to.have.eql(\"Student: fahim08 enrolled successfully in course: No title\")",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0eb97c44-34fc-4b56-8bfc-030acdd34423",
+								"exec": [],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "780718fe-f8f3-400e-a53f-ff0bfbb1c8bb",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1410,7 +1438,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"courseId\": 1\"\"\n}",
+							"raw": "{\n  \"courseId\": 5\n}",
 							"options": {
 								"raw": {
 									"language": "json"
