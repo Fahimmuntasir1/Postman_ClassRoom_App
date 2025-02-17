@@ -1356,11 +1356,14 @@
 							"script": {
 								"id": "0333f627-3534-46aa-81c7-a9ab052903c8",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
 									"});",
-									"",
-									"pm."
+									"res = pm.response.json()",
+									"// console.log(res)",
+									"pm.test(\"passed\", function () {",
+									"    pm.expect(res.message).to.be.eql(\"Course created successfully\")",
+									"})"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -1369,7 +1372,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "cfc54e57-c05b-4239-bf84-e93bfb4e7b6f",
+								"id": "d4e9feb5-97e1-4979-bc67-41e40c27c7d1",
 								"exec": [],
 								"type": "text/javascript"
 							}
