@@ -1548,7 +1548,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{BaseUrl}}/course/details?courseId=#",
+							"raw": "{{BaseUrl}}/course/details?courseId=9",
 							"host": [
 								"{{BaseUrl}}"
 							],
@@ -1559,10 +1559,9 @@
 							"query": [
 								{
 									"key": "courseId",
-									"value": ""
+									"value": "9"
 								}
-							],
-							"hash": ""
+							]
 						},
 						"description": "- To getting a single course user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id that you want to access\n    \n- Then hit the send button you will get response success messages and data of a course."
 					},
