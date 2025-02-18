@@ -1452,17 +1452,36 @@
 				},
 				{
 					"name": "All Courses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bd0c3d10-4cf3-41b1-aa36-7e008f88e4d6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"passed\", function"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "38507af4-1e6e-4eff-abd8-7408a57bdbbd",
+								"exec": [],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "52a8af2d-be69-4ce4-ab52-81c4a016d514",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "Bearer abc123"
-							}
-						},
 						"method": "GET",
 						"header": [],
 						"body": {
