@@ -1580,12 +1580,6 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwidXNlcklkIjo2LdWIiOiJmYWhpbTA2IiwiaWF0IjoxNzM5MTg2ODI2LCJleHAiOjE3MzkxODcxMjZ9.C67M1EOCs7F5sxnRPiOeDSV9ShSUdtUQtEiZst3txpEiuyg"
-							}
-						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -1598,7 +1592,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{BaseUrl}}/course/enrolled/all-student?courseId=4",
+							"raw": "{{BaseUrl}}/course/enrolled/all-student?courseId=@",
 							"host": [
 								"{{BaseUrl}}"
 							],
@@ -1610,7 +1604,7 @@
 							"query": [
 								{
 									"key": "courseId",
-									"value": "4"
+									"value": "@"
 								}
 							]
 						},
