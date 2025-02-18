@@ -1458,12 +1458,13 @@
 							"script": {
 								"id": "bd0c3d10-4cf3-41b1-aa36-7e008f88e4d6",
 								"exec": [
+									"res = pm.response.json()",
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"passed\", function () {",
-									"    pm.expect(res.message).to.eq()",
+									"pm.test(\"passes\", function (){",
+									"    pm.expect(res.message).to.have.eql(\"Successfully fetched all the courses\")",
 									"})"
 								],
 								"type": "text/javascript",
@@ -1473,7 +1474,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "55695bb8-ef68-4a23-beb4-20046d93beaf",
+								"id": "85449180-c547-4eac-84b2-996ac581e8fb",
 								"exec": [],
 								"type": "text/javascript"
 							}
@@ -1509,10 +1510,24 @@
 								"id": "ceaf34ea-2752-4df0-95e7-aa8284af11ef",
 								"exec": [
 									"res = pm.response.json()",
-									""
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"passes\", function (){",
+									"    pm.expect(res.message).to.have.eql(\"Course details are in below.\")",
+									"})"
 								],
 								"type": "text/javascript",
 								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b163c889-7e60-4664-b08c-fd9544e401cf",
+								"exec": [],
+								"type": "text/javascript"
 							}
 						}
 					],
