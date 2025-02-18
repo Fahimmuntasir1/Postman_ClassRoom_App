@@ -1462,7 +1462,9 @@
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"passed\", function"
+									"pm.test(\"passed\", function () {",
+									"    pm.expect(res.message).to.eq()",
+									"})"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -1471,7 +1473,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "38507af4-1e6e-4eff-abd8-7408a57bdbbd",
+								"id": "55695bb8-ef68-4a23-beb4-20046d93beaf",
 								"exec": [],
 								"type": "text/javascript"
 							}
