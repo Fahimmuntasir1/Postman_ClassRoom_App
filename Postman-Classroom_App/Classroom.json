@@ -1592,7 +1592,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{BaseUrl}}/course/enrolled/all-student?courseId=6656768534632568797",
+							"raw": "{{BaseUrl}}/course/enrolled/all-student?courseId=4",
 							"host": [
 								"{{BaseUrl}}"
 							],
@@ -1604,7 +1604,7 @@
 							"query": [
 								{
 									"key": "courseId",
-									"value": "6656768534632568797"
+									"value": "4"
 								}
 							]
 						},
