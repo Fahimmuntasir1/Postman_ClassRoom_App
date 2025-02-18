@@ -1536,12 +1536,6 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwidXNlcklkIjo2LdWIiOiJmYWhpbTA2IiwiaWF0IjoxNzM5MTg2ODI2LCJleHAiOjE3MzkxODcxMjZ9.C67M1EOCs7F5sxnRPiOeDSV9ShSUdtUQtEiZst3txpEiuyg"
-							}
-						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -1554,7 +1548,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{BaseUrl}}/course/details?courseId=4",
+							"raw": "{{BaseUrl}}/course/details?courseId=#",
 							"host": [
 								"{{BaseUrl}}"
 							],
@@ -1565,9 +1559,10 @@
 							"query": [
 								{
 									"key": "courseId",
-									"value": "4"
+									"value": ""
 								}
-							]
+							],
+							"hash": ""
 						},
 						"description": "- To getting a single course user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id that you want to access\n    \n- Then hit the send button you will get response success messages and data of a course."
 					},
