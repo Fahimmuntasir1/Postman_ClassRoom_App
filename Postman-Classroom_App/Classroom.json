@@ -1625,7 +1625,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwidXNlcklkIjoxMTUsInN1YiI6InhueWRwaSIsImlhdCI6MTczOTg1Nzg5MCwiZXhwIjoxNzM5OTQ0MjkwfQ.hvXmaE96NRVrLGtcH0InxGKVeLtiuoS_89f89SCx_AC"
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwidXNlcklkIjoxMTUsInN1YiI6InhueWRwaSIsImlhdCI6MTczOTg1Nzg5MCwiZXhwIjoxNzM5OTQ0MjkwfQ.hvXmaE96NRVrLGtcH0InxGKVeLtiuoS_89f89SCx_Ac"
 							}
 						},
 						"method": "GET",
