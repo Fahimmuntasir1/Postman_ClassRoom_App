@@ -1622,7 +1622,13 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "POST",
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwidXNlcklkIjoxMTUsInN1YiI6InhueWRwaSIsImlhdCI6MTczOTg1Nzg5MCwiZXhwIjoxNzM5OTQ0MjkwfQ.hvXmaE96NRVrLGtcH0InxGKVeLtiuoS_89f89SCx_AC"
+							}
+						},
+						"method": "GET",
 						"header": [],
 						"url": "{{BaseUrl}}/dashboard",
 						"description": "In dashboard a teacher will see all the course that he created, and see a create button to create more courses .The student will see all the courses that he enrolled, he will also see a see more button to buy more courses. They both will access the user profile in right top corner.\n\n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Then hit the send button you will get response success messages and see dashboard."
