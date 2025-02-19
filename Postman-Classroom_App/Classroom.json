@@ -1622,6 +1622,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwidXNlcklkIjo2LdWIiOiJmYWhpbTA2IiwiaWF0IjoxNMTg2ODI2LCJleHAiOjE3MzkxODcxMjZ9.C67M1EOCs7F5sxnRPiOeDSV9ShSUdtUQtEiZst3txpEiuyg"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "{{BaseUrl}}/dashboard",
