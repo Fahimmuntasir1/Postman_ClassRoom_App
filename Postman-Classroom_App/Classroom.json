@@ -1373,8 +1373,11 @@
 							"listen": "prerequest",
 							"script": {
 								"id": "d4e9feb5-97e1-4979-bc67-41e40c27c7d1",
-								"exec": [],
-								"type": "text/javascript"
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -1387,7 +1390,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"title\": \"Romantic Novel\",\n  \"books\": [\n    {\n      \"name\": \"The Notebook\",\n      \"author\": \"Emily Henry\"\n    }\n  ]\n}\n\n// {\n//   \"title\": \"Romantic Novel'; DROP TABLE books; --\",\n//   \"books\": [\n//     {\n//       \"name\": \"The Notebook'; DROP TABLE books; --\",\n//       \"author\": \"Emily Henry\"\n//     }\n//   ]\n// }\n",
+							"raw": "{\n  \"title\": \"Romantic Novel\",\n  \"books\": [\n    {\n      \"name\": \"Pride and Prejudicek\",\n      \"author\": \"Jane Austen, 1813\"\n    }\n  ]\n}\n\n// {\n//   \"title\": \"Romantic Novel'; DROP TABLE books; --\",\n//   \"books\": [\n//     {\n//       \"name\": \"The Notebook'; DROP TABLE books; --\",\n//       \"author\": \"Emily Henry\"\n//     }\n//   ]\n// }\n",
 							"options": {
 								"raw": {
 									"language": "json"
