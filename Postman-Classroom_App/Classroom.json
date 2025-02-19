@@ -65,7 +65,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"username\": \"{{username}}\",\n  \"email\": \"{{username}}@example.com\",\n  \"password\": \"{{password}}\",\n  \"role\": \"student\",\n  \"name\": \"fahim08\"\n}\n\n// {\n// \"username\": \"ghhsefefgfde\",\n// \"email\": \"infvgalid@email.com\",\n// \"password\": \"Synergy@1234\",\n// \"role\": \"teacher\",\n// \"name\": \"Fahad\"\n// }\n// {\n// \"username\": \"user'; DROP TABLE users; --\",\n//   \"email\": \"hacker@example.com\",\n//   \"password\": \"SecurePass!234\",\n//     \"role\": \"teacher\",\n// \"name\": \"InvalidName\"\n// }\n// {\n// \"username\": \"\",\n// \"email\": \"\",\n// \"password\": \"\",\n// \"role\": \"\",\n// \"name\": \"\"\n// }",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"email\": \"{{username}}@example.com\",\n  \"password\": \"{{password}}\",\n  \"role\": \"student\",\n  \"name\": \"new user\"\n}\n\n// {\n// \"username\": \"ghhsefefgfde\",\n// \"email\": \"infvgalid@email.com\",\n// \"password\": \"Synergy@1234\",\n// \"role\": \"teacher\",\n// \"name\": \"Fahad\"\n// }\n// {\n// \"username\": \"user'; DROP TABLE users; --\",\n//   \"email\": \"hacker@example.com\",\n//   \"password\": \"SecurePass!234\",\n//     \"role\": \"teacher\",\n// \"name\": \"InvalidName\"\n// }\n// {\n// \"username\": \"\",\n// \"email\": \"\",\n// \"password\": \"\",\n// \"role\": \"\",\n// \"name\": \"\"\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1622,13 +1622,7 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwidXNlcklkIjoxMTAsInN1YiI6InFrb2JsbiIsImlhdCI6MTczOTg1Nzg5MCwiZXhwIjoxNzM5OTQ0MjkwfQ.VK0kypE96ZD3q4lsxe2q5S20uSpsRTEjbBsLPhmbBXg"
-							}
-						},
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"url": "{{BaseUrl}}/dashboard",
 						"description": "In dashboard a teacher will see all the course that he created, and see a create button to create more courses .The student will see all the courses that he enrolled, he will also see a see more button to buy more courses. They both will access the user profile in right top corner.\n\n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Then hit the send button you will get response success messages and see dashboard."
