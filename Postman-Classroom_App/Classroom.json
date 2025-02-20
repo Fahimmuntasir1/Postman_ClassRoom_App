@@ -3,7 +3,7 @@
 		"_postman_id": "205590ea-9573-4490-ac90-9d5c360fa320",
 		"name": "Classroom",
 		"description": "This API facilitates the management of a classroom platform with two user types: **Teachers** and **Students**.\n\n### **Features**:\n\n- **Teacher Features**:\n    \n    - Create, update, and delete courses.\n        \n    - Manage course details.\n        \n- **Student Features**:\n    \n    - Browse all available courses.\n        \n    - Purchase courses and view enrolled courses.\n        \n- **Shared Features**:\n    \n    - Dashboard access with personalized data for both Teachers and Students after login.\n        \n    - Authentication and user management.\n        \n\nThis collection includes endpoints for managing users, courses, authentication, and dashboards.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.postman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -65,7 +65,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"username\": \"{{username}}\",\n  \"email\": \"{{username}}@example.com\",\n  \"password\": \"{{password}}\",\n  \"role\": \"student\",\n  \"name\": \"new user\"\n}\n\n// {\n// \"username\": \"ghhsefefgfde\",\n// \"email\": \"infvgalid@email.com\",\n// \"password\": \"Synergy@1234\",\n// \"role\": \"teacher\",\n// \"name\": \"Fahad\"\n// }\n// {\n// \"username\": \"user'; DROP TABLE users; --\",\n//   \"email\": \"hacker@example.com\",\n//   \"password\": \"SecurePass!234\",\n//     \"role\": \"teacher\",\n// \"name\": \"InvalidName\"\n// }\n// {\n// \"username\": \"\",\n// \"email\": \"\",\n// \"password\": \"\",\n// \"role\": \"\",\n// \"name\": \"\"\n// }",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"email\": \"{{username}}@example.com\",\n  \"password\": \"{{password}}\",\n  \"role\": \"student\",\n  \"name\": \"old user\"\n}\n\n// {\n// \"username\": \"ghhsefefgfde\",\n// \"email\": \"infvgalid@email.com\",\n// \"password\": \"Synergy@1234\",\n// \"role\": \"teacher\",\n// \"name\": \"Fahad\"\n// }\n// {\n// \"username\": \"user'; DROP TABLE users; --\",\n//   \"email\": \"hacker@example.com\",\n//   \"password\": \"SecurePass!234\",\n//     \"role\": \"teacher\",\n// \"name\": \"InvalidName\"\n// }\n// {\n// \"username\": \"\",\n// \"email\": \"\",\n// \"password\": \"\",\n// \"role\": \"\",\n// \"name\": \"\"\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1642,6 +1642,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwidXNlcklkIjoxMTcsInN1YiI6Im1nZWdmaSIsImlhdCI6MTczOTk1NDMwMywiZXhwIjoxNzQwMDQwNzAzfQ.6HZFt5poexk06g7PauPpEiJlZmx0gIil12PHDoRIcNk"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "{{BaseUrl}}/profile/details",
