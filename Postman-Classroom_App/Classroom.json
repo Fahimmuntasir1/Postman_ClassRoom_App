@@ -691,9 +691,9 @@
 											"}",
 											"// Increment index for next request ",
 											"if (currentIndex < signupTests.length - 1) {",
-											"    pm.environment.set(\"signupTestIndex\", currentIndex + 1);",
+											"    pm.environment.set(\"loginTestIndex\", currentIndex + 1);",
 											"} else {",
-											"    pm.environment.set(\"signupTestIndex\", 0);",
+											"    pm.environment.set(\"loginTestIndex\", 0);",
 											"}",
 											"",
 											"// postman.setNextRequest(null);",
@@ -1455,9 +1455,12 @@
 											"",
 											"// if there are extra fields in the input field (testing purpose)",
 											"if(currentTest.extraField){",
-											"    pm.environment.set(\"testType\", currentTest.testType)",
+											"    pm.environment.set(\"extraField\", currentTest.extraField)",
 											"}",
-											""
+											"",
+											"if (currentIndex < courseCretion.length -1){",
+											"    ",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
