@@ -619,7 +619,7 @@
 									"script": {
 										"id": "5b81b9b4-10f8-48c9-9692-b58817e825cc",
 										"exec": [
-											"let signupTests = [",
+											"let loginTests = [",
 											"    // ---------for positive testing------------",
 											"    {",
 											"        username: \"fahim07\",",
@@ -1459,7 +1459,7 @@
 											"}",
 											"",
 											"if (currentIndex < courseCretion.length -1){",
-											"    ",
+											"    pm.environment.set(\"createCourseTestIndex\", currentIndex +1)",
 											"}"
 										],
 										"type": "text/javascript",
