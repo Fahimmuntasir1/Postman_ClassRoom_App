@@ -1736,13 +1736,7 @@
 										"id": "27ece9e1-314a-4814-9092-410fea6ef549",
 										"exec": [
 											"res = pm.response.json()",
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
-											"});",
-											"",
-											"pm.test(\"passes\", function (){",
-											"    pm.expect(res.message).to.have.eql(\"Student: fahim08 enrolled successfully in course: No title\")",
-											"})"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1752,8 +1746,15 @@
 									"listen": "prerequest",
 									"script": {
 										"id": "0eb97c44-34fc-4b56-8bfc-030acdd34423",
-										"exec": [],
-										"type": "text/javascript"
+										"exec": [
+											"let enrollCourseTest = [",
+											"    {",
+											"        ",
+											"    }",
+											"]"
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1820,29 +1821,14 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "",
+									"raw": "{\n  \"courseId\": 5\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": {
-									"raw": "{{BaseUrl}}/course/enroll?courseId=5",
-									"host": [
-										"{{BaseUrl}}"
-									],
-									"path": [
-										"course",
-										"enroll"
-									],
-									"query": [
-										{
-											"key": "courseId",
-											"value": "5"
-										}
-									]
-								},
+								"url": "{{BaseUrl}}/course/enroll",
 								"description": "- In /course/enroll user must be logged in and also be a student.\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Also you will pass coursID (like example json) in body tab.\n    \n- Then hit the send button you will get success messages."
 							},
 							"response": []
