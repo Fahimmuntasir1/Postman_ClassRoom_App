@@ -1350,225 +1350,303 @@
 			"item": [
 				{
 					"name": "Create Course",
-					"event": [
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "0333f627-3534-46aa-81c7-a9ab052903c8",
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
-									"    pm.response.to.have.status(201);",
-									"});",
-									"res = pm.response.json()",
-									"// console.log(res)",
-									"pm.test(\"passed\", function () {",
-									"    pm.expect(res.message).to.be.eql(\"Course created successfully\")",
-									"})"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
+							"name": "Create Course",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0333f627-3534-46aa-81c7-a9ab052903c8",
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"res = pm.response.json()",
+											"// console.log(res)",
+											"pm.test(\"passed\", function () {",
+											"    pm.expect(res.message).to.be.eql(\"Course created successfully\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "d4e9feb5-97e1-4979-bc67-41e40c27c7d1",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "70923611-da9c-49f8-8452-52c1951e834c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Romantic Novel\",\n  \"books\": [\n    {\n      \"name\": \"Pride and Prejudicek\",\n      \"author\": \"Jane Austen, 1813\"\n    }\n  ]\n}\n\n// {\n//   \"title\": \"Romantic Novel'; DROP TABLE books; --\",\n//   \"books\": [\n//     {\n//       \"name\": \"The Notebook'; DROP TABLE books; --\",\n//       \"author\": \"Emily Henry\"\n//     }\n//   ]\n// }\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseUrl}}/course/create",
+								"description": "- In /course/create user must be logged in and also be a teacher.\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Also you will pass data (like example json) in body tab.\n    \n- Then hit the send button you will get success message."
+							},
+							"response": []
 						},
 						{
-							"listen": "prerequest",
-							"script": {
-								"id": "d4e9feb5-97e1-4979-bc67-41e40c27c7d1",
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
+							"name": "Create Course - Automation",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0333f627-3534-46aa-81c7-a9ab052903c8",
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"res = pm.response.json()",
+											"// console.log(res)",
+											"pm.test(\"passed\", function () {",
+											"    pm.expect(res.message).to.be.eql(\"Course created successfully\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "d4e9feb5-97e1-4979-bc67-41e40c27c7d1",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "96d9d489-1c25-4ded-be25-0aa62de9706f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Romantic Novel\",\n  \"books\": [\n    {\n      \"name\": \"Pride and Prejudicek\",\n      \"author\": \"Jane Austen, 1813\"\n    }\n  ]\n}\n\n// {\n//   \"title\": \"Romantic Novel'; DROP TABLE books; --\",\n//   \"books\": [\n//     {\n//       \"name\": \"The Notebook'; DROP TABLE books; --\",\n//       \"author\": \"Emily Henry\"\n//     }\n//   ]\n// }\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseUrl}}/course/create",
+								"description": "- In /course/create user must be logged in and also be a teacher.\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Also you will pass data (like example json) in body tab.\n    \n- Then hit the send button you will get success message."
+							},
+							"response": []
 						}
 					],
-					"id": "70923611-da9c-49f8-8452-52c1951e834c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"title\": \"Romantic Novel\",\n  \"books\": [\n    {\n      \"name\": \"Pride and Prejudicek\",\n      \"author\": \"Jane Austen, 1813\"\n    }\n  ]\n}\n\n// {\n//   \"title\": \"Romantic Novel'; DROP TABLE books; --\",\n//   \"books\": [\n//     {\n//       \"name\": \"The Notebook'; DROP TABLE books; --\",\n//       \"author\": \"Emily Henry\"\n//     }\n//   ]\n// }\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseUrl}}/course/create",
-						"description": "- In /course/create user must be logged in and also be a teacher.\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Also you will pass data (like example json) in body tab.\n    \n- Then hit the send button you will get success message."
-					},
-					"response": []
+					"id": "26e7f593-ca43-47c9-92b6-cf0dca12092f"
 				},
 				{
 					"name": "Enroll Course",
-					"event": [
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "27ece9e1-314a-4814-9092-410fea6ef549",
-								"exec": [
-									"res = pm.response.json()",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"passes\", function (){",
-									"    pm.expect(res.message).to.have.eql(\"Student: fahim08 enrolled successfully in course: No title\")",
-									"})"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "0eb97c44-34fc-4b56-8bfc-030acdd34423",
-								"exec": [],
-								"type": "text/javascript"
-							}
+							"name": "Enroll Course",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "27ece9e1-314a-4814-9092-410fea6ef549",
+										"exec": [
+											"res = pm.response.json()",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"passes\", function (){",
+											"    pm.expect(res.message).to.have.eql(\"Student: fahim08 enrolled successfully in course: No title\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0eb97c44-34fc-4b56-8bfc-030acdd34423",
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "780718fe-f8f3-400e-a53f-ff0bfbb1c8bb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"courseId\": 5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseUrl}}/course/enroll",
+								"description": "- In /course/enroll user must be logged in and also be a student.\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Also you will pass coursID (like example json) in body tab.\n    \n- Then hit the send button you will get success messages."
+							},
+							"response": []
 						}
 					],
-					"id": "780718fe-f8f3-400e-a53f-ff0bfbb1c8bb",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"courseId\": 5\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseUrl}}/course/enroll",
-						"description": "- In /course/enroll user must be logged in and also be a student.\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Also you will pass coursID (like example json) in body tab.\n    \n- Then hit the send button you will get success messages."
-					},
-					"response": []
+					"id": "42cfb5e5-a780-45f9-8e6b-5a8ad994e601"
 				},
 				{
 					"name": "All Courses",
-					"event": [
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "bd0c3d10-4cf3-41b1-aa36-7e008f88e4d6",
-								"exec": [
-									"res = pm.response.json()",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"passes\", function (){",
-									"    pm.expect(res.message).to.have.eql(\"Successfully fetched all the courses\")",
-									"})"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "85449180-c547-4eac-84b2-996ac581e8fb",
-								"exec": [],
-								"type": "text/javascript"
-							}
+							"name": "All Courses",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bd0c3d10-4cf3-41b1-aa36-7e008f88e4d6",
+										"exec": [
+											"res = pm.response.json()",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"passes\", function (){",
+											"    pm.expect(res.message).to.have.eql(\"Successfully fetched all the courses\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "85449180-c547-4eac-84b2-996ac581e8fb",
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "52a8af2d-be69-4ce4-ab52-81c4a016d514",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseUrl}}/course/all",
+								"description": "- To getting all courses user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Then hit the send button you will get response success messages and data of all courses."
+							},
+							"response": []
 						}
 					],
-					"id": "52a8af2d-be69-4ce4-ab52-81c4a016d514",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseUrl}}/course/all",
-						"description": "- To getting all courses user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Then hit the send button you will get response success messages and data of all courses."
-					},
-					"response": []
+					"id": "6690ee4a-315c-420e-b2de-96580b4ac3e2"
 				},
 				{
 					"name": "Single Course",
-					"event": [
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "ceaf34ea-2752-4df0-95e7-aa8284af11ef",
-								"exec": [
-									"res = pm.response.json()",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"passes\", function (){",
-									"    pm.expect(res.message).to.have.eql(\"Course details are in below.\")",
-									"})"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "b163c889-7e60-4664-b08c-fd9544e401cf",
-								"exec": [],
-								"type": "text/javascript"
-							}
+							"name": "Single Course",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ceaf34ea-2752-4df0-95e7-aa8284af11ef",
+										"exec": [
+											"res = pm.response.json()",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"passes\", function (){",
+											"    pm.expect(res.message).to.have.eql(\"Course details are in below.\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "b163c889-7e60-4664-b08c-fd9544e401cf",
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "6dfe622c-9347-4869-a50b-692da290fcd1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/course/details?courseId=9",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"course",
+										"details"
+									],
+									"query": [
+										{
+											"key": "courseId",
+											"value": "9"
+										}
+									]
+								},
+								"description": "- To getting a single course user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id that you want to access\n    \n- Then hit the send button you will get response success messages and data of a course."
+							},
+							"response": []
 						}
 					],
-					"id": "6dfe622c-9347-4869-a50b-692da290fcd1",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{BaseUrl}}/course/details?courseId=9",
-							"host": [
-								"{{BaseUrl}}"
-							],
-							"path": [
-								"course",
-								"details"
-							],
-							"query": [
-								{
-									"key": "courseId",
-									"value": "9"
-								}
-							]
-						},
-						"description": "- To getting a single course user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id that you want to access\n    \n- Then hit the send button you will get response success messages and data of a course."
-					},
-					"response": []
+					"id": "c78e3280-61ad-4bcf-b850-c7e62cfb3bed"
 				}
 			],
 			"id": "e99c0c25-a19c-461b-bfce-97de868c8df5"
