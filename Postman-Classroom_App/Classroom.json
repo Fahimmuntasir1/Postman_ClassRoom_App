@@ -1825,7 +1825,7 @@
 											"    pm.test(\"User Profile Response contains user data\", function () {",
 											"        let jsonData = response.json();",
 											"        courseID = pm.environment.get(\"courseId\")",
-											"        console.log(jsonData.data.courses.map(course => course.id === courseID))",
+											"        console.log(jsonData.data.courses.find(course => course.id === courseID))",
 											"        // extractedId = jsonData.data.courses.find(course => course.id === courseID)",
 											"        // pm.expect(extractedId).to.eql(courseID);  // Adjust based on API response",
 											"    });",
@@ -1883,11 +1883,11 @@
 											"    pm.environment.set(\"extraField\", currentTest.extraField)",
 											"}",
 											"",
-											"if (currentIndex < enrollCourses.length -1){",
-											"    pm.environment.set(\"enrollCourseTestIndex\", currentIndex + 1)",
-											"} else {",
-											"    pm.environment.set(\"enrollCourseTestIndex\", 0);",
-											"}"
+											"// if (currentIndex < enrollCourses.length -1){",
+											"//     pm.environment.set(\"enrollCourseTestIndex\", currentIndex + 1)",
+											"// } else {",
+											"//     pm.environment.set(\"enrollCourseTestIndex\", 0);",
+											"// }"
 										],
 										"type": "text/javascript",
 										"packages": {}
