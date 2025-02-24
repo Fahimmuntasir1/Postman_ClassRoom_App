@@ -1448,7 +1448,15 @@
 											"",
 											"// Set bookTitle, bookNmae, bookAuthor, TestType from courseCreation array",
 											"let currentTest = courseCretion[currentIndex]",
-											"pm.environment.set(\"bookTitle\")",
+											"pm.environment.set(\"bookTitle\", currentTest.bookTitle)",
+											"pm.environment.set(\"bookName\", currentTest.bookName)",
+											"pm.environment.set(\"bookAuthor\", currentTest.bookAuthor)",
+											"pm.environment.set(\"testType\", currentTest.testType)",
+											"",
+											"// if there are extra fields in the input field (testing purpose)",
+											"if(currentTest.extraField){",
+											"    pm.environment.set(\"testType\", currentTest.testType)",
+											"}",
 											""
 										],
 										"type": "text/javascript",
@@ -1465,7 +1473,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"title\": \"{{titleOfBook}}\",\n  \"books\": [\n    {\n      \"name\": \"{{nameOfBook}}\",\n      \"author\": \"{{bookAuthor}}\"\n    }\n  ]\n}\n",
+									"raw": "{\n  \"title\": \"{{bookTitle}}\",\n  \"books\": [\n    {\n      \"name\": \"{{bookName}}\",\n      \"author\": \"{{bookAuthor}}\"\n    }\n  ]\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
