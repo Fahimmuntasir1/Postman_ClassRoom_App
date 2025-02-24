@@ -1824,10 +1824,9 @@
 											"",
 											"    pm.test(\"Response contains user data\", function () {",
 											"        let jsonData = response.json();",
-											"        pm.expect(jsonData).to.have.property(\"users\");  // Adjust based on API response",
+											"        pm.expect(jsonData.data.courses.id).to.eql(\"users\");  // Adjust based on API response",
 											"    });",
-											"});",
-											"});",
+											"    });",
 											"",
 											"}"
 										],
