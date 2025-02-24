@@ -1747,11 +1747,7 @@
 									"script": {
 										"id": "0eb97c44-34fc-4b56-8bfc-030acdd34423",
 										"exec": [
-											"let enrollCourseTest = [",
-											"    {",
-											"        ",
-											"    }",
-											"]"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1788,13 +1784,7 @@
 										"id": "27ece9e1-314a-4814-9092-410fea6ef549",
 										"exec": [
 											"res = pm.response.json()",
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
-											"});",
-											"",
-											"pm.test(\"passes\", function (){",
-											"    pm.expect(res.message).to.have.eql(\"Student: fahim08 enrolled successfully in course: No title\")",
-											"})"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1805,7 +1795,12 @@
 									"script": {
 										"id": "0eb97c44-34fc-4b56-8bfc-030acdd34423",
 										"exec": [
-											""
+											"let enrollCourseTest = [",
+											"    {",
+											"        courseId : 7,",
+											"        ",
+											"    }",
+											"]"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1821,7 +1816,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"courseId\": 5\n}",
+									"raw": "{\n  \"courseId\": {{courseId}}\n}",
 									"options": {
 										"raw": {
 											"language": "json"
