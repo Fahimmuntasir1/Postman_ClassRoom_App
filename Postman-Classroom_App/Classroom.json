@@ -65,7 +65,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"username\": \"{{username}}\",\n  \"email\": \"{{username}}@example.com\",\n  \"password\": \"{{password}}\",\n  \"role\": \"student\",\n  \"name\": \"old user\"\n}\n\n// {\n// \"username\": \"ghhsefefgfde\",\n// \"email\": \"infvgalid@email.com\",\n// \"password\": \"Synergy@1234\",\n// \"role\": \"teacher\",\n// \"name\": \"Fahad\"\n// }\n// {\n// \"username\": \"user'; DROP TABLE users; --\",\n//   \"email\": \"hacker@example.com\",\n//   \"password\": \"SecurePass!234\",\n//     \"role\": \"teacher\",\n// \"name\": \"InvalidName\"\n// }\n// {\n// \"username\": \"\",\n// \"email\": \"\",\n// \"password\": \"\",\n// \"role\": \"\",\n// \"name\": \"\"\n// }",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"email\": \"{{username}}@example.com\",\n  \"password\": \"{{password}}\",\n  \"role\": \"teacher\",\n  \"name\": \"old user\"\n}\n\n// {\n// \"username\": \"ghhsefefgfde\",\n// \"email\": \"infvgalid@email.com\",\n// \"password\": \"Synergy@1234\",\n// \"role\": \"teacher\",\n// \"name\": \"Fahad\"\n// }\n// {\n// \"username\": \"user'; DROP TABLE users; --\",\n//   \"email\": \"hacker@example.com\",\n//   \"password\": \"SecurePass!234\",\n//     \"role\": \"teacher\",\n// \"name\": \"InvalidName\"\n// }\n// {\n// \"username\": \"\",\n// \"email\": \"\",\n// \"password\": \"\",\n// \"role\": \"\",\n// \"name\": \"\"\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1435,10 +1435,10 @@
 											"",
 											"    // positive test cases",
 											"    {",
-											"        bookTitle = \"Romantic Novel\",",
-											"        bookName = \"Pride and Prejudicek\",",
-											"        bookAuthor = \"Jane Austen, 1813\",",
-											"        testType = \"createValidDtls\"",
+											"        bookTitle: \"Romantic Novel\",",
+											"        bookName: \"Pride and Prejudice\",",
+											"        bookAuthor: \"Jane Austen, 1813\",",
+											"        testType: \"createValidDtls\"",
 											"    }",
 											"",
 											"]",
