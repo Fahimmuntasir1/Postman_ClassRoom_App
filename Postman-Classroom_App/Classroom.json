@@ -1757,7 +1757,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"courseId\": 5\n}",
+									"raw": "{\n  \"courseId\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1825,9 +1825,7 @@
 											"    pm.test(\"User Profile Response include enrolled course\", function () {",
 											"        let jsonData = response.json();",
 											"        courseID = pm.environment.get(\"courseId\")",
-											"        // console.log(jsonData.data.courses.find(course => course.id === courseID))",
 											"        extractedId = jsonData.data.courses.find(course => course.id === courseID)",
-											"        // console.log(extractedId.id)",
 											"        pm.expect(extractedId.id).to.eql(courseID);  // Adjust based on API response",
 											"    });",
 											"    });",
@@ -1836,6 +1834,7 @@
 											"",
 											"if(testType == \"missingId\"){",
 											"    pm.test(\"🔄 Enrolled course with missing courseId is running: \" + \"iteration : \" + testIndex);",
+											"    ",
 											"}",
 											"",
 											""
