@@ -681,7 +681,7 @@
 											"",
 											"",
 											"// Set username, password, and other data from the array",
-											"let currentTest = signupTests[currentIndex];",
+											"let currentTest = loginTests[currentIndex];",
 											"pm.environment.set(\"username\", currentTest.username);",
 											"pm.environment.set(\"password\", currentTest.password);",
 											"pm.environment.set(\"testType\", currentTest.testType);",
@@ -1447,6 +1447,8 @@
 											"currentIndex = parseInt(currentIndex);",
 											"",
 											"// Set bookTitle, bookNmae, bookAuthor, TestType from courseCreation array",
+											"let currentTest = courseCretion[currentIndex]",
+											"pm.environment.set(\"bookTitle\")",
 											""
 										],
 										"type": "text/javascript",
