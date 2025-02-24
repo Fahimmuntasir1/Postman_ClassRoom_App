@@ -1443,7 +1443,32 @@
 											"        pm.test(\"Messages should be \", function() {",
 											"        pm.expect(jsonData.message).to.eql(\"Course created successfully\");",
 											"    });",
-											"}"
+											"}",
+											"if (testType == \"VerifyDBEntry\"){",
+											"    pm.test(\"🔄 Verify created data available in database is running: \" + \"iteration : \" + testIndex);",
+											"    ",
+											"    pm.test(\"Status code is 201\", function() {",
+											"        pm.response.to.have.status(201);",
+											"    });",
+											"    pm.test(\"Success must be ture\", function() {",
+											"        pm.expect(jsonData.success).to.eql(true);",
+											"    });",
+											"        pm.test(\"Messages should be \", function() {",
+											"        pm.expect(jsonData.message).to.eql(\"Course created successfully\");",
+											"    });",
+											"    ",
+											"",
+											"",
+											"}",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1462,6 +1487,12 @@
 											"        bookName: \"Pride and Prejudice\",",
 											"        bookAuthor: \"Jane Austen, 1813\",",
 											"        testType: \"courseWithValidDtls\"",
+											"    },",
+											"    {",
+											"        bookTitle: \"Romantic Novel\",",
+											"        bookName: \"Pride and Prejudice\",",
+											"        bookAuthor: \"Jane Austen, 1813\",",
+											"        testType: \"VerifyDBEntry\"",
 											"    }",
 											"",
 											"]",
@@ -1755,12 +1786,6 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwidXNlcklkIjoxMTUsInN1YiI6InhueWRwaSIsImlhdCI6MTczOTg1Nzg5MCwiZXhwIjoxNzM5OTQ0MjkwfQ.hvXmaE96NRVrLGtcH0InxGKVeLtiuoS_89f89SCx_Ac"
-							}
-						},
 						"method": "GET",
 						"header": [],
 						"url": "{{BaseUrl}}/dashboard",
