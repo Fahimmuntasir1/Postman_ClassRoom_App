@@ -1849,7 +1849,7 @@
 											"        testType : \"ValidCourseId\"",
 											"    },",
 											"        {",
-											"        courseId : 66,",
+											"        courseId : 56,",
 											"        testType : \"ChkEnrollment\"",
 											"    }",
 											"]",
