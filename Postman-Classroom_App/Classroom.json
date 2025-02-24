@@ -1413,14 +1413,6 @@
 									"script": {
 										"id": "0333f627-3534-46aa-81c7-a9ab052903c8",
 										"exec": [
-											"// pm.test(\"Status code is 201\", function () {",
-											"//     pm.response.to.have.status(201);",
-											"// });",
-											"// res = pm.response.json()",
-											"// // console.log(res)",
-											"// pm.test(\"passed\", function () {",
-											"//     pm.expect(res.message).to.be.eql(\"Course created successfully\")",
-											"// })",
 											"jsonData = pm.response.json()",
 											"",
 											"",
@@ -1786,7 +1778,12 @@
 										"id": "27ece9e1-314a-4814-9092-410fea6ef549",
 										"exec": [
 											"res = pm.response.json()",
-											""
+											"",
+											"",
+											"let testType = pm.environment.get(\"testType\");",
+											"let testIndex = pm.environment.get(\"enrollCourseTestIndex\");",
+											"// Positive Testing",
+											"if (testType == )"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1797,7 +1794,7 @@
 									"script": {
 										"id": "0eb97c44-34fc-4b56-8bfc-030acdd34423",
 										"exec": [
-											"let enrollCourse = [",
+											"let enrollCourses = [",
 											"    // Positive Testing",
 											"    {",
 											"        courseId : 7,",
@@ -1812,10 +1809,8 @@
 											"currentIndex = parseInt(currentIndex);",
 											"",
 											"// Set bookTitle, bookNmae, bookAuthor, TestType from courseCreation array",
-											"let currentTest = courseCretion[currentIndex]",
-											"pm.environment.set(\"bookTitle\", currentTest.bookTitle)",
-											"pm.environment.set(\"bookName\", currentTest.bookName)",
-											"pm.environment.set(\"bookAuthor\", currentTest.bookAuthor)",
+											"let currentTest = enrollCourses[currentIndex]",
+											"pm.environment.set(\"courseId\", currentTest.courseId)",
 											"pm.environment.set(\"testType\", currentTest.testType)",
 											"",
 											"// if there are extra fields in the input field (testing purpose)",
@@ -1823,10 +1818,10 @@
 											"    pm.environment.set(\"extraField\", currentTest.extraField)",
 											"}",
 											"",
-											"if (currentIndex < courseCretion.length -1){",
-											"    pm.environment.set(\"createCourseTestIndex\", currentIndex + 1)",
+											"if (currentIndex < enrollCourses.length -1){",
+											"    pm.environment.set(\"enrollCourseTestIndex\", currentIndex + 1)",
 											"} else {",
-											"    pm.environment.set(\"createCourseTestIndex\", 0);",
+											"    pm.environment.set(\"enrollCourseTestIndex\", 0);",
 											"}"
 										],
 										"type": "text/javascript",
