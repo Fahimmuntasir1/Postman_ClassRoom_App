@@ -1538,6 +1538,9 @@
 											"    })",
 											"",
 											"}",
+											"if(testType == \"withoutAuth\"){",
+											"    pm.test(\"🔄 without accessToken request test - is running: \" + \"iteration : \" + testIndex);",
+											"}",
 											"",
 											"",
 											"",
@@ -1607,7 +1610,7 @@
 											"        bookTitle: \"Romantic Novel\",",
 											"        bookName: \"Pride and Prejudice\",",
 											"        bookAuthor: \"Jane Austen, 1813\",",
-											"        testType: \"courseWithValidDtls\"",
+											"        testType: \"withoutAuth\"",
 											"    },",
 											"",
 											"",
@@ -1634,7 +1637,10 @@
 											"//     pm.environment.set(\"createCourseTestIndex\", currentIndex + 1)",
 											"// } else {",
 											"//     pm.environment.set(\"createCourseTestIndex\", 0);",
-											"// }"
+											"// }",
+											"if (currentTest.testType == \"withoutAuth\"){",
+											"    pm.environment.set(\"accessToken\", \"\")",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
