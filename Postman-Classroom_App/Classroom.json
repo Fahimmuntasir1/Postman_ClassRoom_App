@@ -1447,7 +1447,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"title\": \"Romantic Novel\",\n  \"books\": [\n    {\n      \"name\": \"Pride and Prejudicek\",\n      \"author\": \"Jane Austen, 1813\"\n    }\n  ]\n}\n\n// {\n//   \"title\": \"Romantic Novel'; DROP TABLE books; --\",\n//   \"books\": [\n//     {\n//       \"name\": \"The Notebook'; DROP TABLE books; --\",\n//       \"author\": \"Emily Henry\"\n//     }\n//   ]\n// }\n",
+									"raw": "{\n  \"title\": {{titleOfBooks}},\n  \"books\": [\n    {\n      \"name\": \"Pride and Prejudicek\",\n      \"author\": \"Jane Austen, 1813\"\n    }\n  ]\n}\n\n// {\n//   \"title\": \"Romantic Novel'; DROP TABLE books; --\",\n//   \"books\": [\n//     {\n//       \"name\": \"The Notebook'; DROP TABLE books; --\",\n//       \"author\": \"Emily Henry\"\n//     }\n//   ]\n// }\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1720,12 +1720,6 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "105 OR 1=1"
-							}
-						},
 						"method": "GET",
 						"header": [],
 						"url": "{{BaseUrl}}/profile/details",
