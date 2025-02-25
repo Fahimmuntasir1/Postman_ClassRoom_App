@@ -2946,6 +2946,99 @@
 						},
 						{
 							"name": "Enrolled Students - Automation",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "65c0b9f1-9916-468b-a75e-9dfbfdc985ea",
+										"exec": [
+											"let enrolledStudents = [",
+											"    // Positive Testing",
+											"    {",
+											"        courseId : 100,",
+											"        testType : \"ValidCourseId\"",
+											"    },",
+											"    // Negative Testing",
+											"    {",
+											"        courseId : 999, //Non - Extent courseID",
+											"        testType : \"nonExtentId\"",
+											"    },",
+											"    {",
+											"        courseId : \"#$@6\", // Special Charecter",
+											"        testType : \"invalidId\"",
+											"    },",
+											"    {",
+											"        courseId : \"12345678901234567891234567891234567891234567890123456789123456789\", // Very Large Course Id",
+											"        testType : \"tooLargeId\"",
+											"    },",
+											"    //Security Testing",
+											"    {",
+											"        courseId : 100,",
+											"        testType : \"getwithoutTkn\"",
+											"    },",
+											"    {",
+											"        courseId : 100,",
+											"        testType : \"getwithInvalidTkn\" // invalid or expired token",
+											"    },",
+											"    {",
+											"        courseId : 100,",
+											"        testType : \"sqlInjectAuth\"",
+											"    }",
+											"]",
+											"",
+											"",
+											"",
+											"// Get current index",
+											"let currentIndex = pm.environment.get(\"enrolledStudentsTestIndex\") || 0",
+											"currentIndex = parseInt(currentIndex);",
+											"",
+											"// Set bookTitle, bookNmae, bookAuthor, TestType from courseCreation array",
+											"let currentTest = enrolledStudents[currentIndex]",
+											"pm.environment.set(\"courseId\", currentTest.courseId)",
+											"pm.environment.set(\"testType\", currentTest.testType)",
+											"",
+											"// if there are extra fields in the input field (testing purpose)",
+											"if(currentTest.extraField){",
+											"    pm.environment.set(\"extraField\", currentTest.extraField)",
+											"}",
+											"",
+											"if (currentIndex < enrolledStudents.length -1){",
+											"    pm.environment.set(\"enrolledStudentsTestIndex\", currentIndex + 1)",
+											"} else {",
+											"    pm.environment.set(\"enrolledStudentsTestIndex\", 0);",
+											"}",
+											"",
+											"if(currentTest.testType == \"getwithoutTkn\"){",
+											"    pm.environment.set(\"accessToken\", \"\")",
+											"}",
+											"",
+											"if(currentTest.testType == \"getwithInvalidTkn\"){",
+											"    pm.environment.set(\"accessToken\", \"eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwidXNlcklkIjo2LCJzdWIiOiJmYWhpbTA2IiwiaWF0IjoxNzM5MTg2ODI2LCJleHAiOjE3MzkxODcxMjZ9.C67M1EOCs7F5sxnRPiOeDSV9ShSUdtUQtEiZst3txpEiuyg\")",
+											"}",
+											"if(currentTest.testType == \"sqlInjectAuth\"){",
+											"    pm.environment.set(\"accessToken\", \"' OR 1=1 --\")",
+											"}",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "5cc5c079-f462-4ee3-b973-c483c7c3e186",
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "65deb456-d331-4e30-8d62-d0b3ae35965b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2963,7 +3056,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{BaseUrl}}/course/enrolled/all-student?courseId=4",
+									"raw": "{{BaseUrl}}/course/enrolled/all-student?courseId={{courseId}}",
 									"host": [
 										"{{BaseUrl}}"
 									],
@@ -2975,7 +3068,7 @@
 									"query": [
 										{
 											"key": "courseId",
-											"value": "4"
+											"value": "{{courseId}}"
 										}
 									]
 								},
