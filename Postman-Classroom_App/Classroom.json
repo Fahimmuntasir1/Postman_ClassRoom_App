@@ -2163,8 +2163,15 @@
 									"listen": "prerequest",
 									"script": {
 										"id": "85449180-c547-4eac-84b2-996ac581e8fb",
-										"exec": [],
-										"type": "text/javascript"
+										"exec": [
+											"let allCourses = [",
+											"    {",
+											"        testType = \"GetWi\"",
+											"    }",
+											"]"
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
