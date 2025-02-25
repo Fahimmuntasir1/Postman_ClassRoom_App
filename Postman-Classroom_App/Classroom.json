@@ -2389,7 +2389,7 @@
 							"response": []
 						},
 						{
-							"name": "Single Course Copy",
+							"name": "Get Single Course - Automation",
 							"event": [
 								{
 									"listen": "test",
