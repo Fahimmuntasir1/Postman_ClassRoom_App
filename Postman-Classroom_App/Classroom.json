@@ -2963,6 +2963,20 @@
 								"description": "- in /profile/details user will see and edit their user profile.\n    \n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Then hit the send button you will get response success messages and see profile details."
 							},
 							"response": []
+						},
+						{
+							"name": "Profile Details - Automation",
+							"id": "f9f4626a-947b-4d6b-980d-66f4a90199bd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseUrl}}/profile/details",
+								"description": "- in /profile/details user will see and edit their user profile.\n    \n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Then hit the send button you will get response success messages and see profile details."
+							},
+							"response": []
 						}
 					],
 					"id": "336b036b-0fba-486a-9ebe-fac29112c84e"
