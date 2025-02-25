@@ -2449,7 +2449,6 @@
 											"     pm.expect(jsonData.message).to.include(\"Course not found with ID:\");",
 											"    });",
 											"    pm.test(\"courseId have to equal data.id\", function () {",
-											"        courseid = pm.environment.get(\"courseId\")",
 											"     pm.expect(jsonData.message).to.include(courseid);",
 											"    });",
 											"}"
