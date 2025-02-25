@@ -1757,7 +1757,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"courseId\": \" \"\n}",
+									"raw": "{\n  \"courseId\": \"55\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2122,6 +2122,63 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseUrl}}/course/all",
+								"description": "- To getting all courses user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Then hit the send button you will get response success messages and data of all courses."
+							},
+							"response": []
+						},
+						{
+							"name": "All Courses Automation",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bd0c3d10-4cf3-41b1-aa36-7e008f88e4d6",
+										"exec": [
+											"res = pm.response.json()",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"passes\", function (){",
+											"    pm.expect(res.message).to.have.eql(\"Successfully fetched all the courses\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "85449180-c547-4eac-84b2-996ac581e8fb",
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "eeafd50e-0d06-46e0-81ef-b0135a1d1a6b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{accessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [],
 								"body": {
