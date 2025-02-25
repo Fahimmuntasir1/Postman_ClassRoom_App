@@ -2396,14 +2396,28 @@
 									"script": {
 										"id": "ceaf34ea-2752-4df0-95e7-aa8284af11ef",
 										"exec": [
-											"res = pm.response.json()",
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
-											"});",
+											"jsonData = pm.response.json()",
 											"",
-											"pm.test(\"passes\", function (){",
-											"    pm.expect(res.message).to.have.eql(\"Course details are in below.\")",
-											"})"
+											"let testType = pm.environment.get(\"testType\");",
+											"let testIndex = pm.environment.get(\"enrollCourseTestIndex\");",
+											"// Positive Testing",
+											"if (testType == \"ValidCourseId\"){",
+											"    pm.test(\"🔄 Enrolled course with valid courseId is running: \" + \"iteration : \" + testIndex);",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"    pm.test(\"Success message should be true\", function () {",
+											"        pm.expect(jsonData.success).to.be.true;",
+											"    });",
+											"    pm.test(\"message should be Student: username enrolled successfully in course\", function () {",
+											"     pm.expect(jsonData.message).to.include(\"Course details are in below.\");",
+											"    });",
+											"    pm.test(\"courseId have to equal data.id\", function () {",
+											"        courseid = pm.environment.get(courseId)",
+											"     pm.expect(jsonData.data.id).to.eq(courseid);",
+											"    });",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -2413,8 +2427,39 @@
 									"listen": "prerequest",
 									"script": {
 										"id": "b163c889-7e60-4664-b08c-fd9544e401cf",
-										"exec": [],
-										"type": "text/javascript"
+										"exec": [
+											"let getCourse = [",
+											"    // Positive Testing",
+											"    {",
+											"        courseId : 100,",
+											"        testType : \"ValidCourseId\"",
+											"    },",
+											"]",
+											"",
+											"",
+											"",
+											"// Get current index",
+											"let currentIndex = pm.environment.get(\"getCourseTestIndex\") || 0",
+											"currentIndex = parseInt(currentIndex);",
+											"",
+											"// Set bookTitle, bookNmae, bookAuthor, TestType from courseCreation array",
+											"let currentTest = getCourse[currentIndex]",
+											"pm.environment.set(\"courseId\", currentTest.courseId)",
+											"pm.environment.set(\"testType\", currentTest.testType)",
+											"",
+											"// if there are extra fields in the input field (testing purpose)",
+											"if(currentTest.extraField){",
+											"    pm.environment.set(\"extraField\", currentTest.extraField)",
+											"}",
+											"",
+											"if (currentIndex < getCourse.length -1){",
+											"    pm.environment.set(\"getCourseTestIndex\", currentIndex + 1)",
+											"} else {",
+											"    pm.environment.set(\"getCourseTestIndex\", 0);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2435,7 +2480,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{BaseUrl}}/course/details?courseId=9",
+									"raw": "{{BaseUrl}}/course/details?courseId={{courseId}}",
 									"host": [
 										"{{BaseUrl}}"
 									],
@@ -2446,7 +2491,7 @@
 									"query": [
 										{
 											"key": "courseId",
-											"value": "9"
+											"value": "{{courseId}}"
 										}
 									]
 								},
