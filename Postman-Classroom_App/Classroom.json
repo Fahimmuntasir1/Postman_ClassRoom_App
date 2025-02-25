@@ -2903,62 +2903,69 @@
 					"id": "2a652783-0c89-4268-9ed7-578bcb54a80b"
 				},
 				{
-					"name": "New Folder",
-					"item": [],
+					"name": "Enrolled Students",
+					"item": [
+						{
+							"name": "Enrolled Students",
+							"id": "8eb5cc73-7a5c-4072-b809-779d0e79c9ae",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/course/enrolled/all-student?courseId=4",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"course",
+										"enrolled",
+										"all-student"
+									],
+									"query": [
+										{
+											"key": "courseId",
+											"value": "4"
+										}
+									]
+								},
+								"description": "- /course/enrolled/all-student In this endpoint you will see all the students those are enrolled in a course.\n    \n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id which course you want to see.\n    \n- Then hit the send button you will get response success messages and see enrolled students."
+							},
+							"response": []
+						}
+					],
 					"id": "02718d29-63bc-4557-873c-d57043841ec9"
 				},
 				{
-					"name": "Enrolled Students",
-					"id": "8eb5cc73-7a5c-4072-b809-779d0e79c9ae",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{BaseUrl}}/course/enrolled/all-student?courseId=4",
-							"host": [
-								"{{BaseUrl}}"
-							],
-							"path": [
-								"course",
-								"enrolled",
-								"all-student"
-							],
-							"query": [
-								{
-									"key": "courseId",
-									"value": "4"
-								}
-							]
-						},
-						"description": "- /course/enrolled/all-student In this endpoint you will see all the students those are enrolled in a course.\n    \n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id which course you want to see.\n    \n- Then hit the send button you will get response success messages and see enrolled students."
-					},
-					"response": []
-				},
-				{
-					"name": "Profile Details",
-					"id": "224b88c1-a54e-4458-acde-17d983b34e39",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseUrl}}/profile/details",
-						"description": "- in /profile/details user will see and edit their user profile.\n    \n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Then hit the send button you will get response success messages and see profile details."
-					},
-					"response": []
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Profile Details",
+							"id": "224b88c1-a54e-4458-acde-17d983b34e39",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseUrl}}/profile/details",
+								"description": "- in /profile/details user will see and edit their user profile.\n    \n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- Then hit the send button you will get response success messages and see profile details."
+							},
+							"response": []
+						}
+					],
+					"id": "336b036b-0fba-486a-9ebe-fac29112c84e"
 				}
 			],
 			"id": "be092565-03bc-4815-b941-9c29c81b31a1",
