@@ -2414,7 +2414,7 @@
 											"     pm.expect(jsonData.message).to.include(\"Course details are in below.\");",
 											"    });",
 											"    pm.test(\"courseId have to equal data.id\", function () {",
-											"        courseid = pm.environment.get(courseId)",
+											"        courseid = pm.environment.get(\"courseId\")",
 											"     pm.expect(jsonData.data.id).to.eq(courseid);",
 											"    });",
 											"}"
