@@ -3298,7 +3298,7 @@
 											"",
 											"",
 											"let testType = pm.environment.get(\"testType\");",
-											"let testIndex = pm.environment.get(\"allCourseTestIndex\");",
+											"let testIndex = pm.environment.get(\"proDetailsTestIndex\");",
 											"",
 											"// Positive Testing",
 											"if(testType == \"GetWithValidTkn\"){",
