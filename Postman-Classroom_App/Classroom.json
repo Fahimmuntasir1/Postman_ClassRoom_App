@@ -2270,10 +2270,13 @@
 											"    pm.environment.set(\"allCourseTestIndex\", 0);",
 											"}",
 											"",
+											"if (currentTest.testType == \"GetWithValidTkn\"){ // Without bearer Token",
+											"    pm.environment.set(\"accessToken\", \"eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwidXNlcklkIjoxMjgsInN1YiI6Inl1ZWF0biIsImlhdCI6MTc0MDQ2MDc4MywiZXhwIjoxNzQwNTQ3MTgzfQ.TaYirVeEwFumvdWz-TtD8lCFiQYnQkAX4mgTHzJqUJc\")",
+											"}",
 											"if (currentTest.testType == \"GetWithoutTkn\"){ // Without bearer Token",
 											"    pm.environment.set(\"accessToken\", \"\")",
 											"}",
-											"if (currentTest.testType == \"expiredAuthTkn\"){ // Expired bearer Token",
+											"if (currentTest.testType == \"GetWthExpTkn\"){ // Expired bearer Token",
 											"    pm.environment.set(\"accessToken\", \"eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1NUVURFTlQiXSwidXNlcklkIjo2LCJzdWIiOiJmYWhpbTA2IiwiaWF0IjoxNzM5MTg2ODI2LCJleHAiOjE3MzkxODcxMjZ9.C67M1EOCs7F5sxnRPiOeDSV9ShSUdtUQtEiZst3txpEiuyg\")",
 											"}",
 											"if (currentTest.testType == \"sqlInjectAuth\"){ // SQL Injection attempt",
@@ -2350,6 +2353,72 @@
 								}
 							],
 							"id": "6dfe622c-9347-4869-a50b-692da290fcd1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/course/details?courseId=9",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"course",
+										"details"
+									],
+									"query": [
+										{
+											"key": "courseId",
+											"value": "9"
+										}
+									]
+								},
+								"description": "- To getting a single course user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id that you want to access\n    \n- Then hit the send button you will get response success messages and data of a course."
+							},
+							"response": []
+						},
+						{
+							"name": "Single Course Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ceaf34ea-2752-4df0-95e7-aa8284af11ef",
+										"exec": [
+											"res = pm.response.json()",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"passes\", function (){",
+											"    pm.expect(res.message).to.have.eql(\"Course details are in below.\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "b163c889-7e60-4664-b08c-fd9544e401cf",
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "fe6d0e58-b07f-4d34-b050-712a859f92d9",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
