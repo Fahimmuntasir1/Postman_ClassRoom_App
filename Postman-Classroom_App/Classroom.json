@@ -2402,7 +2402,7 @@
 											"jsonData = pm.response.json()",
 											"",
 											"let testType = pm.environment.get(\"testType\");",
-											"let testIndex = pm.environment.get(\"enrollCourseTestIndex\");",
+											"let testIndex = pm.environment.get(\"getCourseTestIndex\");",
 											"// Positive Testing",
 											"if (testType == \"ValidCourseId\"){",
 											"    pm.test(\"🔄 Get a course with valid courseId is running: \" + \"iteration : \" + testIndex);",
