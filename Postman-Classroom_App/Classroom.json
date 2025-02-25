@@ -2943,6 +2943,45 @@
 								"description": "- /course/enrolled/all-student In this endpoint you will see all the students those are enrolled in a course.\n    \n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id which course you want to see.\n    \n- Then hit the send button you will get response success messages and see enrolled students."
 							},
 							"response": []
+						},
+						{
+							"name": "Enrolled Students - Automation",
+							"id": "65deb456-d331-4e30-8d62-d0b3ae35965b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/course/enrolled/all-student?courseId=4",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"course",
+										"enrolled",
+										"all-student"
+									],
+									"query": [
+										{
+											"key": "courseId",
+											"value": "4"
+										}
+									]
+								},
+								"description": "- /course/enrolled/all-student In this endpoint you will see all the students those are enrolled in a course.\n    \n- To getting response user must be logged in .\n    \n- For executing this request you need to give accessToken authorization tab after choosing auth type bearer token.\n    \n- And you also give course id which course you want to see.\n    \n- Then hit the send button you will get response success messages and see enrolled students."
+							},
+							"response": []
 						}
 					],
 					"id": "02718d29-63bc-4557-873c-d57043841ec9"
@@ -3092,7 +3131,7 @@
 											"}",
 											"",
 											"if(testType == \"sqlInjectAuth\"){",
-											"    pm.test(\"🔄 Get All Courses with SQL Inject in Auth Token  is running: \" + \"iteration : \" + testIndex);",
+											"    pm.test(\"🔄 Get Profile Details with SQL Inject in Auth Token  is running: \" + \"iteration : \" + testIndex);",
 											"    pm.test(\"Status code is 401\", function(){",
 											"        pm.response.to.have.status(401)",
 											"    })",
@@ -3106,7 +3145,7 @@
 											"}",
 											"",
 											"if(testType == \"anotherUserTkn\"){",
-											"    pm.test(\"🔄 Gat Dashboard with SQL Inject in Auth Token  is running: \" + \"iteration : \" + testIndex);",
+											"    pm.test(\"🔄 Gat Profile Details another user Auth Token  is running: \" + \"iteration : \" + testIndex);",
 											"    pm.test(\"Status code is 401\", function(){",
 											"        pm.response.to.have.status(401)",
 											"    })",
@@ -3118,6 +3157,7 @@
 											"        pm.expect(jsonData.message).to.include(\"Authentication failed.\");",
 											"        // another users accessToken cann't be use an user",
 											"    });",
+											"}",
 											""
 										],
 										"type": "text/javascript",
