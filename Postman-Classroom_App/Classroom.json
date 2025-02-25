@@ -2966,6 +2966,31 @@
 						},
 						{
 							"name": "Profile Details - Automation",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "cf996bc0-ace8-4273-a48e-bc8dbd733bc2",
+										"exec": [
+											"proDtailsTest = [",
+											"    {",
+											"        testType = \"GetWithValidTkn\"",
+											"    }",
+											"]"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "7f94b57d-1034-4104-b548-8ebaa67c4a30",
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "f9f4626a-947b-4d6b-980d-66f4a90199bd",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
